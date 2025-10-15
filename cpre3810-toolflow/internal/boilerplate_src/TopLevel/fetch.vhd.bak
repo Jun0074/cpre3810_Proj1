@@ -8,7 +8,7 @@ entity fetch is
     i_clk : in std_logic;
     i_rst : in std_logic; -- Active-high reset
     i_PCsrc : in std_logic;
-    i_imm : in std_logic_vector(N-1 downto 0); -- Immediate Input
+    i_newPC : in std_logic_vector(N-1 downto 0); -- Immediate Input
     o_PC  : out std_logic_vector(N-1 downto 0)
   );
 end fetch;
@@ -20,8 +20,8 @@ architecture structure of fetch is
   signal s_PC_next      : std_logic_vector(N-1 downto 0);  -- Next PC Counter
   signal s_PC_plus_4	: std_logic_vector(N-1 downto 0);  -- PC + 4
   signal s_carry_plus_4 : std_logic; -- Carry of PC + 4
-  signal s_PC_plus_imm  : std_logic_vector(N-1 downto 0);  -- PC + Imm
-  signal s_carry_plus_imm : std_logic; -- Carry of PC + Imm
+  -- signal s_PC_plus_imm  : std_logic_vector(N-1 downto 0);  -- PC + Imm
+  --signal s_carry_plus_imm : std_logic; -- Carry of PC + Imm
 
   -- ALU
   component adder_subtractor_n
@@ -58,23 +58,13 @@ begin
       n_Add_Sub => '0'	-- Set to Add mode
     );
 
-  ADD_IMM: adder_subtractor_n
-    generic map(N => N)
-    port map(
-      i_A       => s_PC_current,	-- Current PC
-      i_B       => i_imm,		-- Immediate input
-      o_S       => s_PC_plus_imm,	-- s_PC_plus_imm = s_PC_current + i_imm
-      o_C       => s_carry_plus_imm,
-      n_Add_Sub => '0'	-- Set to Add mode
-    );
-
   -- Select either PC + 4 (0) or PC + Imm (1)
   SEL_PC: mux2t1_N
     generic map(N => N)
     port map(
       i_S	=> i_PCsrc,
       i_D0      => s_PC_plus_4,
-      i_D1      => s_PC_plus_imm,
+      i_D1      => i_newPC,
       o_O       => s_PC_next
     );
 
