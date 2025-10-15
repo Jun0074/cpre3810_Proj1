@@ -56,7 +56,7 @@ begin
 
     -- Now apply a branch/jump using PC + imm
     i_PCsrc <= '1';
-    i_imm   <= std_logic_vector(to_unsigned(1000, N));  -- Add 1000
+    i_imm   <= std_logic_vector(to_unsigned(1024, N));  -- Add 1000
     wait for 10 ns;  -- wait one clock
 
     i_PCsrc <= '0';  -- back to normal increment

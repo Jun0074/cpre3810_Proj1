@@ -13,7 +13,7 @@ architecture sim of tb_fetch is
   signal clk      : std_logic := '0';
   signal rst      : std_logic := '1';
   signal i_PCsrc  : std_logic := '0';
-  signal i_imm    : std_logic_vector(N-1 downto 0) := (others => '0');
+  signal i_newPC    : std_logic_vector(N-1 downto 0) := (others => '0');
   signal PC       : std_logic_vector(N-1 downto 0);
 
   -- Clock period
@@ -29,7 +29,7 @@ begin
       i_clk   => clk,
       i_rst   => rst,
       i_PCsrc => i_PCsrc,
-      i_imm   => i_imm,
+      i_newPC   => i_newPC,
       o_PC    => PC
     );
 
@@ -56,11 +56,11 @@ begin
 
     -- Now apply a branch/jump using PC + imm
     i_PCsrc <= '1';
-    i_imm   <= std_logic_vector(to_unsigned(1024, N));  -- Add 1000
+    i_newPC   <= std_logic_vector(to_unsigned(1024, N));  -- Add 1000
     wait for 10 ns;  -- wait one clock
 
     i_PCsrc <= '0';  -- back to normal increment
-    i_imm   <= (others => '0');
+    i_newPC   <= (others => '0');
     wait for 50 ns;
 
     -- Finish simulation
