@@ -44,12 +44,13 @@ R8
 R9
 n@_opt1
 R10
+R2
 Eadder_subtractor_n
 Z11 w1760549233
 Z12 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z13 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z14 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 34
+!i122 48
 Z15 d/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel
 Z16 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/adder_subtractor_N.vhd
 Z17 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/adder_subtractor_N.vhd
@@ -59,9 +60,9 @@ V`1c6a^>9Nd1Xg7=I>R8Dj1
 !s100 l5nK<nS6a[Z`i913:gFXV0
 Z18 OL;C;2025.1_2;82
 33
-Z19 !s110 1760550405
+Z19 !s110 1760552167
 !i10b 1
-Z20 !s108 1760550404.000000
+Z20 !s108 1760552167.000000
 Z21 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/adder_subtractor_N.vhd|
 Z22 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/adder_subtractor_N.vhd|
 !i113 0
@@ -72,7 +73,7 @@ R12
 R13
 R14
 DEx4 work 18 adder_subtractor_n 0 22 `1c6a^>9Nd1Xg7=I>R8Dj1
-!i122 34
+!i122 48
 l51
 L15 62
 VIg``gkEX4U][BlXbBi3f]1
@@ -91,7 +92,7 @@ Eandg2
 R11
 R13
 R14
-!i122 35
+!i122 49
 R15
 Z25 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/andg2.vhd
 Z26 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/andg2.vhd
@@ -103,9 +104,9 @@ R18
 33
 R19
 !i10b 1
-Z28 !s108 1760550405.000000
-Z29 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/andg2.vhd|
-Z30 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/andg2.vhd|
+R20
+Z28 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/andg2.vhd|
+Z29 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/andg2.vhd|
 !i113 0
 R23
 R24
@@ -113,18 +114,18 @@ Adataflow
 R13
 R14
 DEx4 work 5 andg2 0 22 zJ2OoPJ=<ja2?Y;OcjQk;3
-!i122 35
+!i122 49
 l32
-Z31 L31 6
+Z30 L31 6
 V3oa1[>iDZj;2zVo:oz1>e2
 !s100 I`@Z@UBObS]<7m8bPgKUS1
 R18
 33
 R19
 !i10b 1
+R20
 R28
 R29
-R30
 !i113 0
 R23
 R24
@@ -132,10 +133,10 @@ Econtrol_unit
 R11
 R13
 R14
-!i122 36
+!i122 50
 R15
-Z32 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd
-Z33 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd
+Z31 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd
+Z32 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd
 l0
 L6 1
 VQDgfGlRe3cX5DZ^O1nX8o0
@@ -144,17 +145,17 @@ R18
 33
 R19
 !i10b 1
-R28
-Z34 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd|
-Z35 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd|
+R20
+Z33 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd|
+Z34 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/control_unit.vhd|
 !i113 0
 R23
 R24
 Adataflow
 R13
 R14
-Z36 DEx4 work 12 control_unit 0 22 QDgfGlRe3cX5DZ^O1nX8o0
-!i122 36
+Z35 DEx4 work 12 control_unit 0 22 QDgfGlRe3cX5DZ^O1nX8o0
+!i122 50
 l56
 L17 149
 V<R]N6:i1WkT?=??39fJjV0
@@ -163,9 +164,9 @@ R18
 33
 R19
 !i10b 1
-R28
+R20
+R33
 R34
-R35
 !i113 0
 R23
 R24
@@ -174,10 +175,10 @@ R11
 R12
 R13
 R14
-!i122 37
+!i122 51
 R15
-Z37 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd
-Z38 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd
+Z36 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd
+Z37 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd
 l0
 L5 1
 VKa[6fZz;KGz67C8Q>ZX^K2
@@ -186,9 +187,9 @@ R18
 33
 R19
 !i10b 1
-R28
-Z39 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd|
-Z40 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd|
+R20
+Z38 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd|
+Z39 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/fetch.vhd|
 !i113 0
 R23
 R24
@@ -196,8 +197,8 @@ Astructure
 R12
 R13
 R14
-Z41 DEx4 work 5 fetch 0 22 Ka[6fZz;KGz67C8Q>ZX^K2
-!i122 37
+Z40 DEx4 work 5 fetch 0 22 Ka[6fZz;KGz67C8Q>ZX^K2
+!i122 51
 l48
 L16 79
 V=_W9CC3dD:S<1S[WHbcLh1
@@ -206,9 +207,9 @@ R18
 33
 R19
 !i10b 1
-R28
+R20
+R38
 R39
-R40
 !i113 0
 R23
 R24
@@ -217,10 +218,10 @@ R11
 R12
 R13
 R14
-!i122 38
+!i122 52
 R15
-Z42 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd
-Z43 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd
+Z41 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd
+Z42 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd
 l0
 L5 1
 V9W>=Oi8aC>TV84=c3X^201
@@ -229,9 +230,9 @@ R18
 33
 R19
 !i10b 1
-R28
-Z44 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd|
-Z45 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd|
+R20
+Z43 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd|
+Z44 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/full_adder.vhd|
 !i113 0
 R23
 R24
@@ -240,7 +241,7 @@ R12
 R13
 R14
 DEx4 work 10 full_adder 0 22 9W>=Oi8aC>TV84=c3X^201
-!i122 38
+!i122 52
 l75
 L14 185
 VNAF8?RHY?fnVEh1E<@DS11
@@ -249,9 +250,9 @@ R18
 33
 R19
 !i10b 1
-R28
+R20
+R43
 R44
-R45
 !i113 0
 R23
 R24
@@ -259,10 +260,10 @@ Einvg
 R11
 R13
 R14
-!i122 39
+!i122 53
 R15
-Z46 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd
-Z47 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd
+Z45 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd
+Z46 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd
 l0
 R27
 VzJhOLc0g_4RfSF]IXa;:73
@@ -271,9 +272,9 @@ R18
 33
 R19
 !i10b 1
-R28
-Z48 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd|
-Z49 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd|
+R20
+Z47 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd|
+Z48 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/invg.vhd|
 !i113 0
 R23
 R24
@@ -281,7 +282,7 @@ Adataflow
 R13
 R14
 DEx4 work 4 invg 0 22 zJhOLc0g_4RfSF]IXa;:73
-!i122 39
+!i122 53
 l31
 L30 6
 VT@AA60h>IXVJ?D^`RRiZk1
@@ -290,9 +291,9 @@ R18
 33
 R19
 !i10b 1
-R28
+R20
+R47
 R48
-R49
 !i113 0
 R23
 R24
@@ -301,10 +302,10 @@ R11
 R12
 R13
 R14
-!i122 40
+!i122 54
 R15
-Z50 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd
-Z51 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd
+Z49 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd
+Z50 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd
 l0
 L8 1
 VQ_Y953^@mg4h;HoXAPe2d2
@@ -313,9 +314,9 @@ R18
 33
 R19
 !i10b 1
-R28
-Z52 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd|
-Z53 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd|
+R20
+Z51 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd|
+Z52 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mem.vhd|
 !i113 0
 R23
 R24
@@ -324,7 +325,7 @@ R12
 R13
 R14
 DEx4 work 3 mem 0 22 Q_Y953^@mg4h;HoXAPe2d2
-!i122 40
+!i122 54
 l37
 L27 24
 VcdMDH_i8fEBbejOT7K`iC2
@@ -333,9 +334,9 @@ R18
 33
 R19
 !i10b 1
-R28
+R20
+R51
 R52
-R53
 !i113 0
 R23
 R24
@@ -344,21 +345,21 @@ R11
 R12
 R13
 R14
-!i122 41
+!i122 55
 R15
-Z54 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd
-Z55 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd
+Z53 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd
+Z54 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd
 l0
 L5 1
 VS`61BA9CT71k@F>FND;MQ2
 !s100 X3EVifK^]5fiKXYPLD;eC3
 R18
 33
-Z56 !s110 1760550407
+Z55 !s110 1760552175
 !i10b 1
-Z57 !s108 1760550407.000000
-Z58 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd|
-Z59 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd|
+Z56 !s108 1760552175.000000
+Z57 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd|
+Z58 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1.vhd|
 !i113 0
 R23
 R24
@@ -367,18 +368,18 @@ R12
 R13
 R14
 DEx4 work 6 mux2t1 0 22 S`61BA9CT71k@F>FND;MQ2
-!i122 41
+!i122 55
 l47
 L13 60
 VWdfIPcC?L>S8j_Q:`i5f53
 !s100 R35^FFmT<mjbl?^T5Ik0;2
 R18
 33
-R56
+R55
 !i10b 1
+R56
 R57
 R58
-R59
 !i113 0
 R23
 R24
@@ -386,21 +387,21 @@ Emux2t1_n
 R11
 R13
 R14
-!i122 42
+!i122 56
 R15
-Z60 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd
-Z61 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd
+Z59 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd
+Z60 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd
 l0
 L21 1
 VX=8caLddO;GBDIdffNOz`3
 !s100 a8b75l9QH119Si`4JcQ1J0
 R18
 33
-R56
+R55
 !i10b 1
-R57
-Z62 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd|
-Z63 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd|
+R56
+Z61 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd|
+Z62 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/mux2t1_N.vhd|
 !i113 0
 R23
 R24
@@ -408,18 +409,18 @@ Astructural
 R13
 R14
 DEx4 work 8 mux2t1_n 0 22 X=8caLddO;GBDIdffNOz`3
-!i122 42
+!i122 56
 l39
 L30 21
 VS;7^3=hDiT7zH78Vm1Xhk1
 !s100 W>5MMWO2LBg`K8[P>h>Ye1
 R18
 33
-R56
+R55
 !i10b 1
-R57
+R56
+R61
 R62
-R63
 !i113 0
 R23
 R24
@@ -427,21 +428,21 @@ Eones_complementor_n
 R11
 R13
 R14
-!i122 43
+!i122 57
 R15
-Z64 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd
-Z65 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd
+Z63 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd
+Z64 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd
 l0
 L4 1
 V]=GDk=fDn?;9eP1TN3gjO2
 !s100 FE2e<W`EMa7z_SEdaOKIc1
 R18
 33
-R56
+R55
 !i10b 1
-R57
-Z66 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd|
-Z67 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd|
+R56
+Z65 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd|
+Z66 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ones_complementor_N.vhd|
 !i113 0
 R23
 R24
@@ -449,18 +450,18 @@ Astructural
 R13
 R14
 DEx4 work 19 ones_complementor_n 0 22 ]=GDk=fDn?;9eP1TN3gjO2
-!i122 43
+!i122 57
 l16
 L10 15
 VTb99f4C[HYdRoU9BcSl]80
 !s100 E>1>Yjc[1JC[h`7RfMZ2T2
 R18
 33
-R56
+R55
 !i10b 1
-R57
+R56
+R65
 R66
-R67
 !i113 0
 R23
 R24
@@ -468,21 +469,21 @@ Eorg2
 R11
 R13
 R14
-!i122 44
+!i122 58
 R15
-Z68 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd
-Z69 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd
+Z67 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd
+Z68 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd
 l0
 R27
 V0FzB9ATDX9TV=M:n@=VB83
 !s100 bGQ1F9eW^Q17OoL9h4g7z2
 R18
 33
-R56
+R55
 !i10b 1
-R57
-Z70 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd|
-Z71 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd|
+R56
+Z69 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd|
+Z70 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/org2.vhd|
 !i113 0
 R23
 R24
@@ -490,18 +491,18 @@ Adataflow
 R13
 R14
 DEx4 work 4 org2 0 22 0FzB9ATDX9TV=M:n@=VB83
-!i122 44
+!i122 58
 l32
-R31
+R30
 V0JC>N7cRXc=9bni@>dg7o3
 !s100 h5_AzR3TdRA0a_K=dQ>mI2
 R18
 33
-R56
+R55
 !i10b 1
-R57
+R56
+R69
 R70
-R71
 !i113 0
 R23
 R24
@@ -509,19 +510,19 @@ Eripple_adder_n
 R11
 R13
 R14
-!i122 45
+!i122 59
 R15
-Z72 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ripple_adder_N.vhd
-Z73 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ripple_adder_N.vhd
+Z71 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ripple_adder_N.vhd
+Z72 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ripple_adder_N.vhd
 l0
 L4 1
 V@aZ0F5T7E8;UUFd8_Fd3F2
 !s100 g7RQK_JPk3UjJD75nOE8U2
 R18
 33
-R56
+Z73 !s110 1760552176
 !i10b 1
-R57
+R56
 Z74 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ripple_adder_N.vhd|
 Z75 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/ripple_adder_N.vhd|
 !i113 0
@@ -531,16 +532,16 @@ Astructural
 R13
 R14
 DEx4 work 14 ripple_adder_n 0 22 @aZ0F5T7E8;UUFd8_Fd3F2
-!i122 45
+!i122 59
 l26
 L14 31
 Vl=S=f6`aC:]m^QF666GU]1
 !s100 @jd2i^`b7V<?8SUE[U9Nb0
 R18
 33
-R56
+R73
 !i10b 1
-R57
+R56
 R74
 R75
 !i113 0
@@ -550,7 +551,7 @@ Etb_control_unit
 R11
 R13
 R14
-!i122 46
+!i122 60
 R15
 Z76 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_control_unit.vhd
 Z77 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_control_unit.vhd
@@ -560,31 +561,31 @@ VD7chSMN3JH0^Wj_knX6Hd3
 !s100 3cY;_iaI@hFP<j`Zc`5WS0
 R18
 33
-R56
+R73
 !i10b 1
-R57
-Z78 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_control_unit.vhd|
-Z79 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_control_unit.vhd|
+Z78 !s108 1760552176.000000
+Z79 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_control_unit.vhd|
+Z80 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_control_unit.vhd|
 !i113 0
 R23
 R24
 Abehavior
-R36
+R35
 R13
 R14
 DEx4 work 15 tb_control_unit 0 22 D7chSMN3JH0^Wj_knX6Hd3
-!i122 46
+!i122 60
 l22
 L13 86
 VN2BGdW:`[QWlNlaeP4fH82
 !s100 o;cf1io1F<I_6Paaz^g2P2
 R18
 33
-R56
+R73
 !i10b 1
-R57
 R78
 R79
+R80
 !i113 0
 R23
 R24
@@ -593,42 +594,42 @@ R11
 R12
 R13
 R14
-!i122 47
+!i122 61
 R15
-Z80 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd
-Z81 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd
+Z81 8/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd
+Z82 F/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd
 l0
 L5 1
 VIiQdIKElMWAEJPd3EKmRH2
 !s100 `2ic_4a@E9YVc1Pf^bfK:0
 R18
 33
-Z82 !s110 1760550408
+Z83 !s110 1760552178
 !i10b 1
-Z83 !s108 1760550408.000000
-Z84 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd|
-Z85 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd|
+Z84 !s108 1760552178.000000
+Z85 !s90 -reportprogress|300|-work|work|/home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd|
+Z86 !s107 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/tb_fetch.vhd|
 !i113 0
 R23
 R24
 Asim
-R41
+R40
 R12
 R13
 R14
-DEx4 work 8 tb_fetch 0 22 IiQdIKElMWAEJPd3EKmRH2
-!i122 47
+Z87 DEx4 work 8 tb_fetch 0 22 IiQdIKElMWAEJPd3EKmRH2
+!i122 61
 l23
-L8 63
-V07JQFTBE7JdYO^kS[HEO22
-!s100 LVEo[?JE34fT_HJOfFIF?3
+Z88 L8 63
+Z89 V07JQFTBE7JdYO^kS[HEO22
+Z90 !s100 LVEo[?JE34fT_HJOfFIF?3
 R18
 33
-R82
-!i10b 1
 R83
+!i10b 1
 R84
 R85
+R86
 !i113 0
 R23
 R24
