@@ -1,0 +1,71 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_fetch is
+end tb_fetch;
+
+architecture sim of tb_fetch is
+
+  constant N : integer := 32;
+
+  -- Signals
+  signal clk      : std_logic := '0';
+  signal rst      : std_logic := '1';
+  signal i_PCsrc  : std_logic := '0';
+  signal i_imm    : std_logic_vector(N-1 downto 0) := (others => '0');
+  signal PC       : std_logic_vector(N-1 downto 0);
+
+  -- Clock period
+  constant CLK_PERIOD : time := 10 ns;
+
+
+begin
+
+  -- DUT instantiation
+  DUT: entity work.fetch
+    generic map(N => N)
+    port map(
+      i_clk   => clk,
+      i_rst   => rst,
+      i_PCsrc => i_PCsrc,
+      i_imm   => i_imm,
+      o_PC    => PC
+    );
+
+  -- Clock generation
+  clk_process: process
+  begin
+    while true loop
+      clk <= '0'; wait for CLK_PERIOD/2;
+      clk <= '1'; wait for CLK_PERIOD/2;
+    end loop;
+  end process;
+
+  -- Test process
+  TEST: process
+  begin
+    -- Apply reset
+    rst <= '1';
+    wait for 20 ns;
+    rst <= '0';
+
+    -- Let PC increment normally (PC + 4) for 5 cycles
+    i_PCsrc <= '0';
+    wait for 50 ns;
+
+    -- Now apply a branch/jump using PC + imm
+    i_PCsrc <= '1';
+    i_imm   <= std_logic_vector(to_unsigned(1000, N));  -- Add 1000
+    wait for 10 ns;  -- wait one clock
+
+    i_PCsrc <= '0';  -- back to normal increment
+    i_imm   <= (others => '0');
+    wait for 50 ns;
+
+    -- Finish simulation
+    wait;
+  end process;
+
+end sim;
+

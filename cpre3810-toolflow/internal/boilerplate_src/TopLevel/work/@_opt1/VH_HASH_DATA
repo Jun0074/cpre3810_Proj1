@@ -1,0 +1,91 @@
+[N
+9
+7
+18 adder_subtractor_n
+2
+8 mux2t1_n
+4
+1 N
+9
+5 fetch
+8
+9 structure
+6
+14 ripple_adder_n
+1
+93 /home/teoh/cpre381/cpre3810-toolflow/cpre3810-toolflow/internal/boilerplate_src/TopLevel/work
+3
+10 structural
+5
+19 ones_complementor_n
+]
+[G
+1
+6
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+7
+8
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+5
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+9
+8
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+2
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
