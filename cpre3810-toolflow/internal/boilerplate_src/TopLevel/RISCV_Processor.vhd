@@ -87,6 +87,11 @@ signal s_LTU      : std_logic;
 signal s_PCsrc    : std_logic;
 signal s_NewPC    : std_logic_vector(N-1 downto 0);
 
+-- Branch/jump glue
+signal s_BrTaken    : std_logic;
+signal s_BrTarget   : std_logic_vector(N-1 downto 0);  -- PC + immB
+signal s_JumpTarget : std_logic_vector(N-1 downto 0);  -- JAL/JALR target
+signal s_isJALR     : std_logic;                       -- opcode check
   
  -- signal of the control
     signal s_Ctrl        : std_logic_vector(19 downto 0);
@@ -94,7 +99,7 @@ signal s_NewPC    : std_logic_vector(N-1 downto 0);
     signal s_ALUOp       : std_logic_vector(3 downto 0);
     signal s_ImmType     : std_logic_vector(2 downto 0);
     signal s_ResultSrc   : std_logic_vector(1 downto 0);
-    signal s_LoadType    : std_logic_vector(2 downto 0);
+    signal s_loadType    : std_logic_vector(2 downto 0);
 
 -- read-path extension result for loadType
     signal s_LoadExt : std_logic_vector(31 downto 0);
@@ -113,6 +118,23 @@ signal s_NewPC    : std_logic_vector(N-1 downto 0);
 -- NOTE: '-' denotes don't-care for synthesis.
 -----------------------------------------------------------------
 -- declaration
+--ALU
+component ALU is
+  port(
+    i_A       : in  std_logic_vector(31 downto 0);
+    i_B       : in  std_logic_vector(31 downto 0);
+    i_ALUOp   : in  std_logic_vector(3 downto 0);
+    o_Y       : out std_logic_vector(31 downto 0);
+    o_Zero    : out std_logic;
+    o_LT      : out std_logic;
+    o_LTU     : out std_logic;
+    o_Ovfl    : out std_logic
+  );
+end component;
+
+-- TODO: Immediate generator (outputs I/S/B/U/J immediates per s_ImmType)
+
+-- control unit
 component control_unit is
   port(
     i_opcode   : in  std_logic_vector(6 downto 0);
@@ -135,7 +157,7 @@ component fetch is
 end component;
 
 -- LoadType: 000=lw, 001=lh, 010=lb, 011=lbu, 100=lhu
-component LoadType is
+component loadType is
   port(
     i_word     : in  std_logic_vector(31 downto 0); -- DMEM 32-bit read
     i_addr_low : in  std_logic_vector(1 downto 0);  -- address(1 downto 0)
@@ -238,10 +260,60 @@ FETCH_PC: fetch
              we   => s_DMemWr,
              q    => s_DMemOut);
 
-  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment! 
+    
+    -- ALU Input MUX 1, operand A: 0=RS1, 1=PC
+    s_ALU_A <= s_RS1Data when s_ALUSrcA='0' else s_NextInstAddr;
+
+    -- ALU Input MUX 2, operand B: 0=RS2, 1=Imm
+    s_ALU_B <= s_RS2Data when s_ALUSrc='0' else s_ImmExt;
+
+    u_ALU: ALU
+  	port map(
+   	 i_A       => s_ALU_A,
+   	 i_B       => s_ALU_B,
+   	 i_ALUOp   => s_ALUOp,        -- control bits[17:14]
+  	 o_Y       => s_ALUResult,
+   	 o_Zero    => s_Zero,
+   	 o_LT      => s_LT,
+   	 o_LTU     => s_LTU,
+    	 o_Ovfl    => s_Ovfl
+ 	 );
+
+	-- keep ALU result observable for synthesis
+	oALUOut <= s_ALUResult;
+	-- TODO: IMM GENERATOR
+
+	-- Branch decision from ALU flags + funct3
+	process(s_Branch, s_Inst, s_Zero, s_LT, s_LTU)
+	begin
+  	if s_Branch='1' then
+   	   case s_Inst(14 downto 12) is
+     		 when "000" => s_BrTaken <= s_Zero;        -- beq
+     		 when "001" => s_BrTaken <= not s_Zero;    -- bne
+     		 when "100" => s_BrTaken <= s_LT;          -- blt  (signed)
+      		 when "101" => s_BrTaken <= not s_LT;      -- bge  (signed)
+     		 when "110" => s_BrTaken <= s_LTU;         -- bltu (unsigned)
+      		 when "111" => s_BrTaken <= not s_LTU;     -- bgeu (unsigned)
+     		 when others => s_BrTaken <= '0';
+    		end case;
+  	   else
+     		s_BrTaken <= '0';
+  	end if;
+	end process;
+
+-- Targets
+s_BrTarget <= std_logic_vector(unsigned(s_NextInstAddr) + unsigned(s_ImmExt));  -- PC + immB
+
+s_isJALR   <= '1' when s_Inst(6 downto 0) = "1100111" else '0';                 -- jalr opcode
+s_JumpTarget <= (s_ALUResult and x"FFFFFFFE") when s_isJALR='1'                 -- jalr: clear bit0
+                else s_ALUResult;                                               -- jal: ALU computed PC+immJ
+
+-- Final PC select
+s_PCsrc <= s_BrTaken or s_Jump;    -- 1 => take branch or jump
+s_NewPC <= s_BrTarget when s_BrTaken='1' else s_JumpTarget;
 
 	s_DMemWr   <= s_MemWrite;  -- control => DMEM write enable
 	s_RegWr    <= s_RegWrite;  -- control => RegFile write enable
@@ -250,12 +322,12 @@ FETCH_PC: fetch
 	s_PCplus4 <= std_logic_vector(unsigned(s_NextInstAddr) + 4);
 
   -- LoadType: extend DMEM read according to loadType (000 lw, 001 lh, 010 lb, 011 lbu, 100 lhu)
-  u_LoadType: LoadType
+  u_LoadType: loadType
     port map(
       i_word     => s_DMemOut,                -- 32-bit word from data memory
       i_addr_low => s_DMemAddr(1 downto 0),   -- byte offset from address
-      i_LType    => s_LoadType,               -- s_Ctrl(3 downto 1)
-    o_data     => s_LoadExt                -- extended load result
+      i_LType    => s_loadType,               -- s_Ctrl(3 downto 1)
+      o_data     => s_LoadExt                -- extended load result
     );
   
   -- write-back mux (ResultSrc: 00=ALU, 01=MEM, 10=PC+4, 11=ImmU)
@@ -265,16 +337,7 @@ FETCH_PC: fetch
                    s_PCplus4   when "10",
                    s_ImmExt    when others;
 
-	-- keep ALU result observable for synthesis
-	oALUOut <= s_ALUResult;
-
-	--PCsrc
-	s_PCsrc <= (s_Branch and s_Zero) or s_Jump;
-
-	-- Next PC (your execute stage should compute PC+imm or rs1+imm in ALU)
-	s_NewPC <= s_ALUResult;
-
-
+-- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
 
 end structure;
 

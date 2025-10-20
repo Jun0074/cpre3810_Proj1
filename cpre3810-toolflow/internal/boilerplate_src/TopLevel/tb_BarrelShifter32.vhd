@@ -1,0 +1,95 @@
+------------------------------------------------------------
+-- Testbench for BarrelShifter32 (Waveform-based)
+-- author: Tian Jun Teoh
+-- Drive multiple shift patterns for SLL, SRL, and SRA
+------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_BarrelShifter32 is
+end tb_BarrelShifter32;
+
+architecture sim of tb_BarrelShifter32 is
+
+  -- DUT component
+  component BarrelShifter32
+    port(
+      i_D     : in  std_logic_vector(31 downto 0);
+      i_SA    : in  std_logic_vector(4 downto 0);
+      i_Right : in  std_logic;
+      i_Arith : in  std_logic;
+      o_Y     : out std_logic_vector(31 downto 0)
+    );
+  end component;
+
+  -- signals
+  signal i_D     : std_logic_vector(31 downto 0) := (others => '0');
+  signal i_SA    : std_logic_vector(4 downto 0) := (others => '0');
+  signal i_Right : std_logic := '0';
+  signal i_Arith : std_logic := '0';
+  signal o_Y     : std_logic_vector(31 downto 0);
+
+begin
+
+  -- Instantiate the DUT
+  DUT: BarrelShifter32
+    port map(
+      i_D     => i_D,
+      i_SA    => i_SA,
+      i_Right => i_Right,
+      i_Arith => i_Arith,
+      o_Y     => o_Y
+    );
+
+--Test begin
+  process
+  begin
+    -- =======================
+    -- Test 1: SLL (logical left)
+    -- =======================
+    i_Right <= '0'; i_Arith <= '0';
+    i_D <= x"80000001";
+
+    i_SA <= "00000"; wait for 10 ns;
+    i_SA <= "00001"; wait for 10 ns;  -- shift by 1
+    i_SA <= "00100"; wait for 10 ns;  -- shift by 4
+    i_SA <= "01000"; wait for 10 ns;  -- shift by 8
+    i_SA <= "10000"; wait for 10 ns;  -- shift by 16
+    i_SA <= "11111"; wait for 10 ns;  -- shift by 31
+
+    wait for 20 ns;
+
+    -- =======================
+    -- Test 2: SRL (logical right)
+    -- =======================
+    i_Right <= '1'; i_Arith <= '0';
+    i_D <= x"80000000";
+
+    i_SA <= "00001"; wait for 10 ns;  -- shift by 1
+    i_SA <= "00100"; wait for 10 ns;  -- shift by 4
+    i_SA <= "01000"; wait for 10 ns;  -- shift by 8
+    i_SA <= "10000"; wait for 10 ns;  -- shift by 16
+    i_SA <= "11111"; wait for 10 ns;  -- shift by 31
+
+    wait for 20 ns;
+
+    -- =======================
+    -- Test 3: SRA (arithmetic right)
+    -- =======================
+    i_Right <= '1'; i_Arith <= '1';
+    i_D <= x"80000000";               -- negative number
+
+    i_SA <= "00001"; wait for 10 ns;  -- shift by 1
+    i_SA <= "00100"; wait for 10 ns;  -- shift by 4
+    i_SA <= "01000"; wait for 10 ns;  -- shift by 8
+    i_SA <= "10000"; wait for 10 ns;  -- shift by 16
+    i_SA <= "11111"; wait for 10 ns;  -- shift by 31
+
+    wait for 20 ns;
+
+    wait;
+  end process;
+
+end architecture;
+
