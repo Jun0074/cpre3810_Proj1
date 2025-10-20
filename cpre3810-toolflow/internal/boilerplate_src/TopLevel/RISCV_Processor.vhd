@@ -70,6 +70,23 @@ architecture structure of RISCV_Processor is
 
 -- TODO: You may add any additional signals or components your implementation 
 --       requires below this comment
+
+-- Register file read buses
+signal s_RS1Data  : std_logic_vector(N-1 downto 0);
+signal s_RS2Data  : std_logic_vector(N-1 downto 0);
+
+-- ALU inputs/flags
+signal s_ALUResult : std_logic_vector(N-1 downto 0);  -- ALU result (tie to oALUOut later)
+signal s_ALU_A    : std_logic_vector(N-1 downto 0);
+signal s_ALU_B    : std_logic_vector(N-1 downto 0);
+signal s_Zero     : std_logic;
+signal s_LT       : std_logic;
+signal s_LTU      : std_logic;
+
+-- PC select (branch/jump)
+signal s_PCsrc    : std_logic;
+signal s_NewPC    : std_logic_vector(N-1 downto 0);
+
   
  -- signal of the control
     signal s_Ctrl        : std_logic_vector(19 downto 0);
@@ -79,6 +96,11 @@ architecture structure of RISCV_Processor is
     signal s_ResultSrc   : std_logic_vector(1 downto 0);
     signal s_LoadType    : std_logic_vector(2 downto 0);
 
+-- read-path extension result for loadType
+    signal s_LoadExt : std_logic_vector(31 downto 0);
+-- Write-back / immediate / pc+4
+    signal s_PCplus4   : std_logic_vector(N-1 downto 0);
+    signal s_ImmExt    : std_logic_vector(N-1 downto 0); -- from ImmGen (placeholder)
 
 --control
 -- ========= Bit-field format banner (MSB..LSB) =========
@@ -112,6 +134,16 @@ component fetch is
   );
 end component;
 
+-- LoadType: 000=lw, 001=lh, 010=lb, 011=lbu, 100=lhu
+component LoadType is
+  port(
+    i_word     : in  std_logic_vector(31 downto 0); -- DMEM 32-bit read
+    i_addr_low : in  std_logic_vector(1 downto 0);  -- address(1 downto 0)
+    i_LType    : in  std_logic_vector(2 downto 0);  -- s_Ctrl(3 downto 1)
+    o_data     : out std_logic_vector(31 downto 0)  -- extended to 32-bit
+  );
+end component;
+
 -- Register
 component RegFile is
   port (
@@ -138,13 +170,16 @@ begin
       iInstAddr when others;
 
   -- fetch (PC)
-  FETCH_PC: fetch
-    generic map(N => N)
-    port map( i_clk => iCLK,
-              i_rst => iRST,
-              i_PCsrc => '0', -- need to map to Control and MUX ltr on, now set to 0 first
-              i_newPC => std_logic_vector(to_unsigned(1024, N)),     --Output PC+imm from ALU
-              o_PC  => s_NextInstAddr); 
+FETCH_PC: fetch
+  generic map(N => N)
+  port map(
+    i_clk   => iCLK,
+    i_rst   => iRST,
+    i_PCsrc => s_PCsrc,   -- PC source select: 0 = PC+4, 1 = new branch/jump target
+    i_newPC => s_NewPC,   -- Next PC input (from ALU result for branch/jump)
+    o_PC    => s_NextInstAddr   -- Output current PC value to instruction memory
+  );
+
   -- Control Unit
     CONTROL: control_unit
     port map(
@@ -154,19 +189,34 @@ begin
       o_Ctrl_Unt => s_Ctrl                    -- packed 20-bit control bus
     );
 
-  -- Unpack of 20-bit Ctrl
-  s_ALUSrc   <= s_Ctrl(19);
-  s_ALUSrcA  <= s_Ctrl(18);
-  s_ALUOp    <= s_Ctrl(17 downto 14);
-  s_ImmType  <= s_Ctrl(13 downto 11);
-  s_ResultSrc<= s_Ctrl(10 downto 9);
-  s_MemWrite <= s_Ctrl(8);
-  s_RegWrite <= s_Ctrl(7);
-  s_MemRead  <= s_Ctrl(6);
-  s_Jump     <= s_Ctrl(5);
-  s_Branch   <= s_Ctrl(4);
-  s_LoadType <= s_Ctrl(3 downto 1);
-  s_Halt     <= s_Ctrl(0);
+      -- Unpack of 20-bit Ctrl
+      s_ALUSrc   <= s_Ctrl(19);
+      s_ALUSrcA  <= s_Ctrl(18);
+      s_ALUOp    <= s_Ctrl(17 downto 14);
+      s_ImmType  <= s_Ctrl(13 downto 11);
+      s_ResultSrc<= s_Ctrl(10 downto 9);
+      s_MemWrite <= s_Ctrl(8);
+      s_RegWrite <= s_Ctrl(7);
+      s_MemRead  <= s_Ctrl(6);
+      s_Jump     <= s_Ctrl(5);
+      s_Branch   <= s_Ctrl(4);
+      s_LoadType <= s_Ctrl(3 downto 1);
+      s_Halt     <= s_Ctrl(0);
+
+
+  -- Register file
+  u_RegFile: RegFile
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => s_RegWrite,
+      i_RD  => s_Inst(11 downto 7),  -- rd
+      i_WD  => s_RegWrData,          -- from write-back mux
+      i_RS1 => s_Inst(19 downto 15), -- rs1
+      i_RS2 => s_Inst(24 downto 20), -- rs2
+      o_RS1 => s_RS1Data,
+      o_RS2 => s_RS2Data
+      );
 
   -- Instruction Memory
   IMem: mem
@@ -192,6 +242,39 @@ begin
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment! 
+
+	s_DMemWr   <= s_MemWrite;  -- control => DMEM write enable
+	s_RegWr    <= s_RegWrite;  -- control => RegFile write enable
+	s_DMemAddr <= s_ALUResult;  -- ALU result drives DMEM address
+	s_DMemData <= s_RS2Data; 
+	s_PCplus4 <= std_logic_vector(unsigned(s_NextInstAddr) + 4);
+
+  -- LoadType: extend DMEM read according to loadType (000 lw, 001 lh, 010 lb, 011 lbu, 100 lhu)
+  u_LoadType: LoadType
+    port map(
+      i_word     => s_DMemOut,                -- 32-bit word from data memory
+      i_addr_low => s_DMemAddr(1 downto 0),   -- byte offset from address
+      i_LType    => s_LoadType,               -- s_Ctrl(3 downto 1)
+    o_data     => s_LoadExt                -- extended load result
+    );
+  
+  -- write-back mux (ResultSrc: 00=ALU, 01=MEM, 10=PC+4, 11=ImmU)
+  with s_ResultSrc select
+    s_RegWrData <= s_ALUResult when "00",
+                   s_LoadExt   when "01",
+                   s_PCplus4   when "10",
+                   s_ImmExt    when others;
+
+	-- keep ALU result observable for synthesis
+	oALUOut <= s_ALUResult;
+
+	--PCsrc
+	s_PCsrc <= (s_Branch and s_Zero) or s_Jump;
+
+	-- Next PC (your execute stage should compute PC+imm or rs1+imm in ALU)
+	s_NewPC <= s_ALUResult;
+
+
 
 end structure;
 
