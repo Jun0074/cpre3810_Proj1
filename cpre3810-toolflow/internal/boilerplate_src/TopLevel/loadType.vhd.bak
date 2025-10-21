@@ -1,0 +1,52 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.numeric_std.all
+
+entity loadType is
+port(
+i_word     : in  std_logic_vector(31 downto 0); -- 32b word read from DMEM @ addr[31:2]
+i_addr_low : in  std_logic_vector(1 downto 0);  -- byte select = address(1 downto 0)
+i_LType    : in  std_logic_vector(2 downto 0);  -- 000 lw, 001 lh, 010 lb, 011 lbu, 100 lhu
+o_data     : out std_logic_vector(31 downto 0)  -- sign/zero-extended result
+);
+end entity;
+
+architecture rtl of loadType is
+signal b : std_logic_vector(7 downto 0);   -- selected byte
+signal h : std_logic_vector(15 downto 0);  -- selected halfword
+begin
+-----------------------------------
+-- byte select (little-endian):
+-- addr[1:0]=00 -> bits [7:0]
+-- addr[1:0]=01 -> bits [15:8]
+-- addr[1:0]=10 -> bits [23:16]
+-- addr[1:0]=11 -> bits [31:24]
+-----------------------------------
+with i_addr_low select
+b <= i_word(7  downto 0)   when "00",
+     i_word(15 downto 8)   when "01",
+     i_word(23 downto 16)  when "10",
+     i_word(31 downto 24)  when others;
+
+--------------------------------------
+-- halfword select (little-endian):
+-- addr[1]=0 -> low  half [15:0]
+-- addr[1]=1 -> high half [31:16]
+--------------------------------------
+h <= i_word(15 downto 0) when i_addr_low(1)='0' else i_word(31 downto 16);
+
+----------------------------------------------------
+-- loadType decode  (follow your control encodings)
+-- 000=lw, 001=lh, 010=lb, 011=lbu, 100=lhu
+----------------------------------------------------
+process(i_LType,b,h,i_word)
+begin
+  case i_LType is
+    when "010" => o_data <= (31 downto 8  => b(7)) & b;     -- lb  (sign-extend 8->32)
+    when "011" => o_data <= (31 downto 8  => '0')  & b;     -- lbu (zero-extend 8->32)
+    when "001" => o_data <= (31 downto 16 => h(15))& h;     -- lh  (sign-extend 16->32)
+    when "100" => o_data <= (31 downto 16 => '0') & h;      -- lhu (zero-extend 16->32)
+    when others=> o_data <= i_word;                         -- lw  (pass full 32b)
+  end case;
+end process;
+end architecture;
