@@ -1,0 +1,18 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity sign_extenderNto32 is
+  generic(N : integer := 12);
+  port (
+    i_data_in  : in  std_logic_vector(N-1 downto 0);
+    o_data_out : out std_logic_vector(31 downto 0)
+  );
+end sign_extenderNto32;
+
+architecture Behavioral of sign_extenderNto32 is
+
+begin
+  o_data_out(31 downto N) <= (others => i_data_in(N-1));
+  o_data_out(N-1 downto 0) <= i_data_in;
+
+end Behavioral;
