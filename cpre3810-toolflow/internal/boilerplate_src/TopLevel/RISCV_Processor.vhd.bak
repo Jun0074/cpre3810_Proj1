@@ -248,7 +248,7 @@ begin
       );
 
   -- ImmGen
-  IMMGEN: immGen
+  IMMEDIATEGEN: immGen
     port map(
       i_instr   => s_Inst,
       i_immType => s_ImmType,  -- Instruction type selector

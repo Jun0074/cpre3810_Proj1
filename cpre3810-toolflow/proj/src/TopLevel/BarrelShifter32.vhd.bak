@@ -1,0 +1,135 @@
+-- BarrelShifter32.vhd
+-- 32-bit structural shifter as 5 stages by 1,2,4,8,16.
+-- Modes:
+--   i_Right='0'             for left logical (SLL)
+--   i_Right='1', i_Arith=0  for right logical (SRL)
+--   i_Right='1', i_Arith=1  for right arithmetic (SRA)
+--------------------------------------------------------------
+library ieee;                              
+use ieee.std_logic_1164.all;              
+entity BarrelShifter32 is
+  port(
+    i_D     : in  std_logic_vector(31 downto 0); -- data to shift
+    i_SA    : in  std_logic_vector(4 downto 0);  -- shift amount
+    i_Right : in  std_logic;                     -- 0=left, 1=right
+    i_Arith : in  std_logic;                     -- right: 1=arithmetic
+    o_Y     : out std_logic_vector(31 downto 0)  -- shifted result
+  );
+end entity;
+
+architecture rtl of BarrelShifter32 is
+  -- stage buses
+    signal s0, s1, s2, s3, s4, s5 : std_logic_vector(31 downto 0); -- pipeline
+  -- per-stage precomputed variants
+    signal s1L, s1RL, s1RA, s1Rsel : std_logic_vector(31 downto 0);
+    signal s2L, s2RL, s2RA, s2Rsel : std_logic_vector(31 downto 0);
+    signal s3L, s3RL, s3RA, s3Rsel : std_logic_vector(31 downto 0);
+    signal s4L, s4RL, s4RA, s4Rsel : std_logic_vector(31 downto 0);
+    signal s5L, s5RL, s5RA, s5Rsel : std_logic_vector(31 downto 0);
+  -- sign fill for SRA
+    signal signfill : std_logic;
+begin
+    s0       <= i_D;                         -- stage 0 input
+    signfill <= i_D(31);                     -- sign bit for SRA
+
+  -- ===== stage by 1 =====
+    s1L    <= s0(30 downto 0) & '0';         -- left by 1
+    s1RL   <= '0' & s0(31 downto 1);         -- right logical by 1
+    s1RA   <= signfill & s0(31 downto 1);    -- right arith by 1
+    s1Rsel <= s1RA when i_Arith='1' else s1RL; -- choose RL/RA
+   -- apply stage if SA(0)=1
+    process(i_SA, i_Right, s0, s1L, s1Rsel)
+	begin
+  	if i_SA(0) = '0' then
+   	 s1 <= s0;                        
+  	else
+    	if i_Right = '0' then
+    	  s1 <= s1L;                      
+   	 else
+    	  s1 <= s1Rsel;               
+   	 end if;
+  	end if;
+     end process;
+ 
+
+  -- ===== stage by 2 =====
+    s2L    <= s1(29 downto 0) & "00";        -- left by 2
+    s2RL   <= "00" & s1(31 downto 2);        -- right logical by 2
+    s2RA   <= (signfill & signfill) & s1(31 downto 2); -- right arith by 2
+    s2Rsel <= s2RA when i_Arith='1' else s2RL;
+    process(i_SA, i_Right, s1, s2L, s2Rsel)
+	begin
+  	if i_SA(1) = '0' then
+   	 s2 <= s1;                      
+  	else
+    	if i_Right = '0' then
+    	  s2 <= s2L;                     
+   	 else
+    	  s2 <= s2Rsel;                  
+   	 end if;
+  	end if;
+     end process;
+
+
+  -- ===== stage by 4 =====
+    s3L    <= s2(27 downto 0) & "0000";      -- left by 4
+    s3RL   <= "0000" & s2(31 downto 4);      -- right logical by 4
+    s3RA   <= (31 downto 28 => signfill) & s2(31 downto 4); -- right arith by 4
+    s3Rsel <= s3RA when i_Arith='1' else s3RL;
+    process(i_SA, i_Right, s2, s3L, s3Rsel)
+	begin
+  	if i_SA(2) = '0' then
+   	 s3 <= s2;                       
+  	else
+    	if i_Right = '0' then
+    	  s3 <= s3L;                      
+   	 else
+    	  s3 <= s3Rsel;                 
+   	 end if;
+  	end if;
+     end process;
+
+
+  -- ===== stage by 8 =====
+    s4L    <= s3(23 downto 0) & x"00";       -- left by 8
+    s4RL   <= x"00" & s3(31 downto 8);       -- right logical by 8
+    s4RA   <= (31 downto 24 => signfill) & s3(31 downto 8); -- right arith by 8
+    s4Rsel <= s4RA when i_Arith='1' else s4RL;
+    process(i_SA, i_Right, s3, s4L, s4Rsel)
+	begin
+  	if i_SA(3) = '0' then
+   	 s4 <= s3;                      
+  	else
+    	if i_Right = '0' then
+    	  s4 <= s4L;                     
+   	 else
+    	  s4 <= s4Rsel;                  
+   	 end if;
+  	end if;
+     end process;
+
+
+  -- ===== stage by 16 =====
+    s5L    <= s4(15 downto 0) & x"0000";     -- left by 16
+    s5RL   <= x"0000" & s4(31 downto 16);    -- right logical by 16
+    s5RA   <= (31 downto 16 => signfill) & s4(31 downto 16); -- right arith by 16
+    s5Rsel <= s5RA when i_Arith='1' else s5RL;
+    process(i_SA, i_Right, s4, s5L, s5Rsel)
+	begin
+  	if i_SA(4) = '0' then
+   	 s5 <= s4;                         -- no shift by 16
+  	else
+    	if i_Right = '0' then
+    	  s5 <= s5L;                      -- left shift by 16
+   	 else
+    	  s5 <= s5Rsel;                   -- right shift by 16
+   	 end if;
+  	end if;
+     end process;
+
+
+
+    o_Y <= s5;   -- final result
+
+
+end architecture;
