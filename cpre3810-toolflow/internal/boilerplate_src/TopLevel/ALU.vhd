@@ -59,6 +59,7 @@ architecture rtl of ALU is
     );
   end component;
 
+
 begin
   -- map input buses to numeric types
   A_s   <= signed(i_A);                                 -- signed A
