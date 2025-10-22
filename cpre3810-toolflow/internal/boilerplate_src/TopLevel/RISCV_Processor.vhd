@@ -183,6 +183,15 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  -- ImmGen
+  component immGen is
+    port(
+      i_instr   : in  std_logic_vector(31 downto 0);
+      i_immType : in  std_logic_vector(2 downto 0);  -- Instruction type selector
+      o_imm     : out std_logic_vector(31 downto 0)
+    );
+  end component;
+
 
 begin
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -237,6 +246,14 @@ begin
       o_RS1 => s_RS1Data,
       o_RS2 => s_RS2Data
       );
+
+  -- ImmGen
+  IMMEDIATEGEN: immGen
+    port map(
+      i_instr   => s_Inst,
+      i_immType => s_ImmType,  -- Instruction type selector
+      o_imm     => s_ImmExt
+    );
 
   -- Instruction Memory
   IMem: mem
