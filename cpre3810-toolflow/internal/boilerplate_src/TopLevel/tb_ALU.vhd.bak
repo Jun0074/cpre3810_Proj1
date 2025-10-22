@@ -1,0 +1,100 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_alu is
+end entity;
+
+architecture sim of tb_alu is
+  -- DUT ports
+  signal i_A      : std_logic_vector(31 downto 0) := (others => '0');
+  signal i_B      : std_logic_vector(31 downto 0) := (others => '0');
+  signal i_ALUOp  : std_logic_vector(3 downto 0)  := (others => '0');
+  signal o_Y      : std_logic_vector(31 downto 0);
+  signal o_Zero   : std_logic;
+  signal o_LT     : std_logic;
+  signal o_LTU    : std_logic;
+  signal o_Ovfl   : std_logic;
+
+  constant T : time := 20 ns;
+
+  -- We mirror the ALUOp encodings we implemented
+  constant ALU_AND  : std_logic_vector(3 downto 0) := "0000";
+  constant ALU_OR   : std_logic_vector(3 downto 0) := "0001";
+  constant ALU_ADD  : std_logic_vector(3 downto 0) := "0010";
+  constant ALU_SUB  : std_logic_vector(3 downto 0) := "0011";
+  constant ALU_XOR  : std_logic_vector(3 downto 0) := "0100";
+  constant ALU_SLT  : std_logic_vector(3 downto 0) := "0111";
+  constant ALU_SLTU : std_logic_vector(3 downto 0) := "1000";
+  constant ALU_SLL  : std_logic_vector(3 downto 0) := "1001";
+  constant ALU_SRL  : std_logic_vector(3 downto 0) := "1010";
+  constant ALU_SRA  : std_logic_vector(3 downto 0) := "1011";
+begin
+  -- Device Under Test: I instantiate our ALU
+  DUT: entity work.ALU
+    port map(
+      i_A     => i_A,
+      i_B     => i_B,
+      i_ALUOp => i_ALUOp,
+      o_Y     => o_Y,
+      o_Zero  => o_Zero,
+      o_LT    => o_LT,
+      o_LTU   => o_LTU,
+      o_Ovfl  => o_Ovfl
+    );
+
+  -- I drive simple vectors; we verify results in the wave window (no transcript prints).
+  process
+  begin
+    -- AND: I check that Zero is asserted when result is all zeros
+    i_A <= x"F0F0F0F0"; i_B <= x"0F0F0F0F"; i_ALUOp <= ALU_AND;  -- we expect Y=00000000, Zero=1
+    wait for T;
+
+    -- OR: I expect all ones here
+    i_ALUOp <= ALU_OR;                                          -- we expect Y=FFFFFFFF, Zero=0
+    wait for T;
+
+    -- XOR: complementary patterns also yield all ones
+    i_ALUOp <= ALU_XOR;                                         -- we expect Y=FFFFFFFF
+    wait for T;
+
+    -- ADD: I verify normal addition with no overflow
+    i_A <= x"00000001"; i_B <= x"00000002"; i_ALUOp <= ALU_ADD; -- we expect Y=00000003, Ovfl=0
+    wait for T;
+
+    -- ADD overflow: I force a signed overflow condition
+    i_A <= x"7FFFFFFF"; i_B <= x"00000001"; i_ALUOp <= ALU_ADD; -- we expect Y=80000000, Ovfl=1
+    wait for T;
+
+    -- SUB equal: I confirm Zero goes high for equal operands
+    i_A <= x"12345678"; i_B <= x"12345678"; i_ALUOp <= ALU_SUB; -- we expect Y=00000000, Zero=1
+    wait for T;
+
+    -- SUB overflow: I trigger signed overflow on subtraction
+    i_A <= x"80000000"; i_B <= x"00000001"; i_ALUOp <= ALU_SUB; -- we expect Y=7FFFFFFF, Ovfl=1
+    wait for T;
+
+    -- SLT signed: we check that negative < positive ? 1
+    i_A <= x"80000000"; i_B <= x"00000001"; i_ALUOp <= ALU_SLT; -- we expect Y=00000001
+    wait for T;
+
+    -- SLTU unsigned: we check the opposite for unsigned compare
+    i_ALUOp <= ALU_SLTU;                                        -- we expect Y=00000000
+    wait for T;
+
+    -- SLL: I left-shift a 1 into the sign bit
+    i_A <= x"00000001"; i_B <= x"0000001F"; i_ALUOp <= ALU_SLL; -- we expect Y=80000000
+    wait for T;
+
+    -- SRL: we bring that sign bit down to LSB logically
+    i_A <= x"80000000"; i_B <= x"0000001F"; i_ALUOp <= ALU_SRL; -- we expect Y=00000001
+    wait for T;
+
+    -- SRA: we check sign extension on arithmetic right shift
+    i_ALUOp <= ALU_SRA;                                         -- we expect Y=FFFFFFFF
+    wait for T;
+
+    wait;
+  end process;
+end architecture;
+

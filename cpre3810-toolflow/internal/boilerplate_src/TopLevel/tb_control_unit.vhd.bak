@@ -84,7 +84,7 @@ wait for clk_period;
 report "JAL         => " & to_string(o_Ctrl_Unt);
 
 -- HALT
-i_opcode <= "0000000";
+i_opcode <= "1110011";
 i_funct3 <= "000";
 i_funct7 <= "0000000";
 wait for clk_period;

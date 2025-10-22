@@ -1,5 +1,5 @@
 -- ALU.vhd
--- Consumes ALUOp(3:0) directly from your control_unit bits[17:14].
+-- Consumes ALUOp(3:0) directly from control_unit bits[17:14].
 -- Supports: AND, OR, XOR, ADD, SUB, SLT, SLTU, SLL, SRL, SRA
 -- Provides branch compare flags for: beq/bne (Zero), blt/bge (LT), bltu/bgeu (LTU)
 -- Structural 32-bit BarrelShifter inside ALU below
@@ -23,7 +23,7 @@ end entity;
 
 architecture rtl of ALU is
 
---ALUOp encodings (match your control spreadsheet)
+--ALUOp encodings (match control spreadsheet)
   constant ALU_AND  : std_logic_vector(3 downto 0) := "0000"; -- and/andi
   constant ALU_OR   : std_logic_vector(3 downto 0) := "0001"; -- or/ori
   constant ALU_ADD  : std_logic_vector(3 downto 0) := "0010"; -- add/addi/lw/sw/auipc/jal/jalr addr
@@ -47,6 +47,18 @@ architecture rtl of ALU is
   signal sh_right : std_logic;            -- 0=left, 1=right
   signal sh_arith : std_logic;            -- right: 1=arith
   signal sh_out   : std_logic_vector(31 downto 0);      -- shift result
+
+  -- BarrelShifter Component
+  component BarrelShifter32
+    port(
+      i_D     : in  std_logic_vector(31 downto 0); -- data to shift
+      i_SA    : in  std_logic_vector(4 downto 0);  -- shift amount
+      i_Right : in  std_logic;                     -- 0=left, 1=right
+      i_Arith : in  std_logic;                     -- right: 1=arithmetic
+      o_Y     : out std_logic_vector(31 downto 0)  -- shifted result
+    );
+  end component;
+
 
 begin
   -- map input buses to numeric types
