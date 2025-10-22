@@ -48,6 +48,16 @@ architecture rtl of ALU is
   signal sh_arith : std_logic;            -- right: 1=arith
   signal sh_out   : std_logic_vector(31 downto 0);      -- shift result
 
+  component BarrelShifter32
+    port(
+      i_D     : in  std_logic_vector(31 downto 0); -- data to shift
+      i_SA    : in  std_logic_vector(4 downto 0);  -- shift amount
+      i_Right : in  std_logic;                     -- 0=left, 1=right
+      i_Arith : in  std_logic;                     -- right: 1=arithmetic
+      o_Y     : out std_logic_vector(31 downto 0)  -- shifted result
+    );
+  end component;
+
 begin
   -- map input buses to numeric types
   A_s   <= signed(i_A);                                 -- signed A
