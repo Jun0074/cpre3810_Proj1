@@ -35,7 +35,7 @@ begin
   imm_U <= i_instr(31 downto 12) & (11 downto 0 => '0'); -- Upper immediate
   imm_J <= i_instr(31) & i_instr(19 downto 12) & i_instr(20) & i_instr(30 downto 21) & "0"; -- LSB=0
 
-  -- Sign-extend each immediate using the external module
+  -- Sign-extend each immediate using the sign extender component
   U1: entity work.sign_extenderNto32 generic map (N => 12) port map(i_data_in => imm_I, o_data_out => imm_I_ext);
   U2: entity work.sign_extenderNto32 generic map (N => 12) port map(i_data_in => imm_S, o_data_out => imm_S_ext);
   U3: entity work.sign_extenderNto32 generic map (N => 13) port map(i_data_in => imm_B, o_data_out => imm_B_ext);
