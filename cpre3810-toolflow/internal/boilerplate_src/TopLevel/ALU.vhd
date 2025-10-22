@@ -1,5 +1,5 @@
 -- ALU.vhd
--- Consumes ALUOp(3:0) directly from your control_unit bits[17:14].
+-- Consumes ALUOp(3:0) directly from control_unit bits[17:14].
 -- Supports: AND, OR, XOR, ADD, SUB, SLT, SLTU, SLL, SRL, SRA
 -- Provides branch compare flags for: beq/bne (Zero), blt/bge (LT), bltu/bgeu (LTU)
 -- Structural 32-bit BarrelShifter inside ALU below
@@ -23,7 +23,7 @@ end entity;
 
 architecture rtl of ALU is
 
---ALUOp encodings (match your control spreadsheet)
+--ALUOp encodings (match control spreadsheet)
   constant ALU_AND  : std_logic_vector(3 downto 0) := "0000"; -- and/andi
   constant ALU_OR   : std_logic_vector(3 downto 0) := "0001"; -- or/ori
   constant ALU_ADD  : std_logic_vector(3 downto 0) := "0010"; -- add/addi/lw/sw/auipc/jal/jalr addr

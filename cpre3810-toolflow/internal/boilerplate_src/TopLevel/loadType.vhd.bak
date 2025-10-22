@@ -36,7 +36,7 @@ b <= i_word(7  downto 0)   when "00",
 h <= i_word(15 downto 0) when i_addr_low(1)='0' else i_word(31 downto 16);
 
 ----------------------------------------------------
--- loadType decode  (follow your control encodings)
+-- loadType decode  (follow control encodings)
 -- 000=lw, 001=lh, 010=lb, 011=lbu, 100=lhu
 ----------------------------------------------------
 process(i_LType,b,h,i_word)
