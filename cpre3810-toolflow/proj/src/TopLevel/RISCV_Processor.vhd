@@ -4,7 +4,7 @@
 -- Iowa State University
 -------------------------------------------------------------------------
 
-
+-- Author: Tian Jun Teoh, Austin Nguyen
 -- RISCV_Processor.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file contains a skeleton of a RISCV_Processor  

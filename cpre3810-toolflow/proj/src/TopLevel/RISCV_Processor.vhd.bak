@@ -268,17 +268,6 @@ begin
              we   => iInstLd,
              q    => s_Inst);
 
-  -- SYSTEM opcode = 1110011
-  s_isSystem <= '1' when (s_Inst(6 downto 0) = "1110011") else '0';
-
-  -- WFI: imm[31:20]=0x105, funct3=000, rs1=00000, rd=00000
-  s_halt <= '1' when (s_isSystem = '1'
-                       and s_Inst(31 downto 20) = SYS_WFI_FUNCT12
-                       and s_Inst(14 downto 12) = "000"
-                       and s_Inst(19 downto 15) = "00000"
-                       and s_Inst(11 downto 7)  = "00000")
-            else '0';
-
   -- Data Memory
   DMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
