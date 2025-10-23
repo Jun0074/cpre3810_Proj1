@@ -72,7 +72,8 @@ begin
   process(i_clk, i_rst)
   begin
     if (i_rst = '1') then
-      s_PC_current <= (others => '0');
+     -- s_PC_current <= (others => '0');
+     s_PC_current <=x"00400000"; -- set PC start at 0x00400000 initially
     elsif rising_edge(i_clk) then
       s_PC_current <= s_PC_next;
     end if;
