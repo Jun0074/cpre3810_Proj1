@@ -232,6 +232,9 @@ begin
       s_LoadType <= s_Ctrl(3 downto 1);
       s_Halt     <= s_Ctrl(0);
 
+  
+  -- Connect s_RegWrAddr to address in instructions
+  s_RegWrAddr <= s_Inst(11 downto 7);
 
   -- Register file
   u_RegFile: RegFile
@@ -239,7 +242,7 @@ begin
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => s_RegWrite,
-      i_RD  => s_Inst(11 downto 7),  -- rd
+      i_RD  => s_RegWrAddr,  -- rd
       i_WD  => s_RegWrData,          -- from write-back mux
       i_RS1 => s_Inst(19 downto 15), -- rs1
       i_RS2 => s_Inst(24 downto 20), -- rs2
@@ -248,7 +251,7 @@ begin
       );
 
   -- ImmGen
-  IMMGEN: immGen
+  IMMEDIATEGEN: immGen
     port map(
       i_instr   => s_Inst,
       i_immType => s_ImmType,  -- Instruction type selector

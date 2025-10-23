@@ -297,7 +297,7 @@ begin
       o_Zero    => s_Zero,
       o_LT      => s_LT,
       o_LTU     => s_LTU,
-      o_Ovfl    => s_Ovfl
+      o_Ovfl    => 0
     );
 
   -- keep ALU result observable for synthesis
