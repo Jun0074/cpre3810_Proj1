@@ -1,0 +1,18 @@
+BEGIN 2:1:structure:riscv_processor:work
+    s_DMemWr :  2:1:mixed:tb:work
+
+    s_DMemData :  2:1:mixed:tb:work
+
+    s_RegWrAddr :  2:1:mixed:tb:work
+
+    s_Halt :  2:1:mixed:tb:work
+
+    s_DMemAddr :  2:1:mixed:tb:work
+
+    s_RegWr :  2:1:mixed:tb:work
+
+    s_RegWrData :  2:1:mixed:tb:work
+
+    s_Ovfl :  2:1:mixed:tb:work
+
+END 

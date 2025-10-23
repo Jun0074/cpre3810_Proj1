@@ -1,0 +1,77 @@
+[inst #1] addi x31,x0,0
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #2] addi x5,x0,5
+Register Write to Reg: 0x05 Val: 0x00000005
+[inst #3] addi x6,x0,7
+Register Write to Reg: 0x06 Val: 0x00000007
+[inst #4] slt x7,x5,x6
+Register Write to Reg: 0x07 Val: 0x00000001
+[inst #5] addi x8,x0,1
+Register Write to Reg: 0x08 Val: 0x00000001
+[inst #6] xor x9,x7,x8
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #7] or x31,x31,x9
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #8] addi x5,x0,7
+Register Write to Reg: 0x05 Val: 0x00000007
+[inst #9] addi x6,x0,5
+Register Write to Reg: 0x06 Val: 0x00000005
+[inst #10] slt x7,x5,x6
+Register Write to Reg: 0x07 Val: 0x00000000
+[inst #11] addi x8,x0,0
+Register Write to Reg: 0x08 Val: 0x00000000
+[inst #12] xor x9,x7,x8
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #13] or x31,x31,x9
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #14] addi x5,x0,0
+Register Write to Reg: 0x05 Val: 0x00000000
+[inst #15] addi x6,x0,0
+Register Write to Reg: 0x06 Val: 0x00000000
+[inst #16] slt x7,x5,x6
+Register Write to Reg: 0x07 Val: 0x00000000
+[inst #17] addi x8,x0,0
+Register Write to Reg: 0x08 Val: 0x00000000
+[inst #18] xor x9,x7,x8
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #19] or x31,x31,x9
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #20] addi x5,x0,-1
+Register Write to Reg: 0x05 Val: 0xFFFFFFFF
+[inst #21] addi x6,x0,0
+Register Write to Reg: 0x06 Val: 0x00000000
+[inst #22] slt x7,x5,x6
+Register Write to Reg: 0x07 Val: 0x00000001
+[inst #23] addi x8,x0,1
+Register Write to Reg: 0x08 Val: 0x00000001
+[inst #24] xor x9,x7,x8
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #25] or x31,x31,x9
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #26] addi x5,x0,-4
+Register Write to Reg: 0x05 Val: 0xFFFFFFFC
+[inst #27] addi x6,x0,-3
+Register Write to Reg: 0x06 Val: 0xFFFFFFFD
+[inst #28] slt x7,x5,x6
+Register Write to Reg: 0x07 Val: 0x00000001
+[inst #29] addi x8,x0,1
+Register Write to Reg: 0x08 Val: 0x00000001
+[inst #30] xor x9,x7,x8
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #31] or x31,x31,x9
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #32] addi x5,x0,-3
+Register Write to Reg: 0x05 Val: 0xFFFFFFFD
+[inst #33] addi x6,x0,-4
+Register Write to Reg: 0x06 Val: 0xFFFFFFFC
+[inst #34] slt x7,x5,x6
+Register Write to Reg: 0x07 Val: 0x00000000
+[inst #35] addi x8,x0,0
+Register Write to Reg: 0x08 Val: 0x00000000
+[inst #36] xor x9,x7,x8
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #37] or x31,x31,x9
+Register Write to Reg: 0x1F Val: 0x00000000
+[inst #38] wfi 
+
+Program terminated by dropping off the bottom.

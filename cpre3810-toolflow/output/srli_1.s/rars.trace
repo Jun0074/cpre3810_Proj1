@@ -1,0 +1,21 @@
+[inst #1] lui x5,1048575
+Register Write to Reg: 0x05 Val: 0xFFFFF000
+[inst #2] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x0FFFFF00
+[inst #3] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x00FFFFF0
+[inst #4] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x000FFFFF
+[inst #5] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x0000FFFF
+[inst #6] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x00000FFF
+[inst #7] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x000000FF
+[inst #8] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x0000000F
+[inst #9] srli x5,x5,4
+Register Write to Reg: 0x05 Val: 0x00000000
+[inst #10] wfi 
+
+Program terminated by dropping off the bottom.
