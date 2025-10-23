@@ -85,6 +85,7 @@ begin
   process(i_A, i_B, i_ALUOp, A_s, B_s, A_u, B_u, sh_out)
     variable sum  : signed(31 downto 0);               -- A+B
     variable diff : signed(31 downto 0);               -- A-B
+   
   begin
     sum  := A_s + B_s;                                 -- precompute add
     diff := A_s - B_s;                                 -- precompute sub
@@ -114,7 +115,7 @@ begin
     end case;
 
     -- flags driven from selected result / operands
-    o_Zero <= '1' when res = x"00000000" else '0';      -- Zero flag
+ 
     o_LT   <= '1' when A_s < B_s else '0';              -- signed-compare flag
     o_LTU  <= '1' when A_u < B_u else '0';              -- unsigned-compare flag
 
@@ -128,5 +129,8 @@ begin
   -- connect result/overflow to outputs
   o_Y    <= res;                -- result out
   o_Ovfl <= ov_add or ov_sub;   -- overflow out
+
+  -- DO NOT TOUCH THIS LINE! It is intended to left outside of the combinational process
+  o_Zero <= '1' when res = x"00000000" else '0';      -- Zero flag
 
 end architecture;

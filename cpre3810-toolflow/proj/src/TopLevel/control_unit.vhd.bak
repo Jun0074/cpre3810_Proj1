@@ -41,7 +41,7 @@ constant OPC_JAL    : std_logic_vector(6 downto 0) := "1101111";
 constant OPC_JALR   : std_logic_vector(6 downto 0) := "1100111";
 constant OPC_LUI    : std_logic_vector(6 downto 0) := "0110111";
 constant OPC_AUIPC  : std_logic_vector(6 downto 0) := "0010111";
-constant OPC_SYSTEM : std_logic_vector(6 downto 0) := "0000001"; -- use as HALT/WFI
+constant OPC_SYSTEM : std_logic_vector(6 downto 0) := "1110011"; -- use as HALT/WFI
 
 -- ========= Bit-field format banner (MSB..LSB) =========
 -- [19]    [18]     [17:14]     [13:11]     [10:9]   [8]   [7]   [6]  [5]  [4]   [3:1]     [0]
