@@ -23,7 +23,7 @@ end entity;
 
 architecture rtl of ALU is
 
---ALUOp encodings (match control spreadsheet)
+--ALUOp encodings (matchgit  control spreadsheet)
   constant ALU_AND  : std_logic_vector(3 downto 0) := "0000"; -- and/andi
   constant ALU_OR   : std_logic_vector(3 downto 0) := "0001"; -- or/ori
   constant ALU_ADD  : std_logic_vector(3 downto 0) := "0010"; -- add/addi/lw/sw/auipc/jal/jalr addr
@@ -120,10 +120,8 @@ begin
     o_LTU  <= '1' when A_u < B_u else '0';              -- unsigned-compare flag
 
     -- overflow per 2's-comp rules (ADD/SUB)
-    ov_add <= '1' when (i_ALUOp = ALU_ADD) and
-                      ((A_s(31) = B_s(31)) and (sum(31)  /= A_s(31))) else '0';
-    ov_sub <= '1' when (i_ALUOp = ALU_SUB) and
-                      ((A_s(31) /= B_s(31)) and (diff(31) /= A_s(31))) else '0';
+    ov_add <= '1' when (i_ALUOp = ALU_ADD) and ((A_s(31) = B_s(31)) and (sum(31)  /= A_s(31))) else '0';
+    ov_sub <= '1' when (i_ALUOp = ALU_SUB) and ((A_s(31) /= B_s(31)) and (diff(31) /= A_s(31))) else '0';
   end process;
 
   -- connect result/overflow to outputs

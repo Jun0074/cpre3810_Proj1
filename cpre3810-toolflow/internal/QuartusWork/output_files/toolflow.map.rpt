@@ -1,5 +1,5 @@
 Analysis & Synthesis report for toolflow
-Fri Oct 24 21:59:34 2025
+Sat Oct 25 01:36:58 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Oct 24 21:59:34 2025               ;
+; Analysis & Synthesis Status        ; Failed - Sat Oct 25 01:36:58 2025               ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; RISCV_Processor                                 ;
@@ -176,7 +176,7 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Oct 24 21:59:28 2025
+    Info: Processing started: Sat Oct 25 01:36:43 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -186,7 +186,7 @@ Info (12021): Found 2 design units, including 0 entities, in source file /home/t
 Error (10500): VHDL syntax error at ALU.vhd(119) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 119
 Error (10500): VHDL syntax error at ALU.vhd(120) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 120
 Error (10500): VHDL syntax error at ALU.vhd(123) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 123
-Error (10500): VHDL syntax error at ALU.vhd(125) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 125
+Error (10500): VHDL syntax error at ALU.vhd(124) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 124
 Info (12021): Found 0 design units, including 0 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/BarrelShifter32.vhd
     Info (12022): Found design unit 1: BarrelShifter32-rtl File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/BarrelShifter32.vhd Line: 20
@@ -260,9 +260,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/t
     Info (12022): Found design unit 1: sign_extenderNto32-Behavioral File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/sign_extenderNto32.vhd Line: 12
     Info (12023): Found entity 1: sign_extenderNto32 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/sign_extenderNto32.vhd Line: 4
 Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 1 warning
-    Error: Peak virtual memory: 626 megabytes
-    Error: Processing ended: Fri Oct 24 21:59:34 2025
-    Error: Elapsed time: 00:00:06
+    Error: Peak virtual memory: 627 megabytes
+    Error: Processing ended: Sat Oct 25 01:36:58 2025
+    Error: Elapsed time: 00:00:15
     Error: Total CPU time (on all processors): 00:00:11
 
 

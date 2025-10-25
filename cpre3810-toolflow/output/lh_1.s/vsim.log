@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 21:22:22 on Oct 23,2025
+# Start time: 23:37:38 on Oct 24,2025
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2025.1_2 linux_x86_64 Apr  7 2025
@@ -97,11 +97,11 @@ Reading pref.tcl
 #    Time: 5 ns  Iteration: 4  Instance: /tb/MyRiscv/u_ALU
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 5 ns  Iteration: 4  Instance: /tb/MyRiscv/u_ALU
-# ** Note: Data structure takes 55162616 bytes of memory
-#          Process time 0.07 seconds
+# ** Note: Data structure takes 55424784 bytes of memory
+#          Process time 0.09 seconds
 #          stop
 #    Time: 160 ns  Iteration: 1  Instance: /tb
 # Break in Process P_DUMP_STATE at /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/internal/testpy/tb.vhd line 150
 # Stopped at /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 21:22:23 on Oct 23,2025, Elapsed time: 0:00:01
+# End time: 23:37:39 on Oct 24,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 21
