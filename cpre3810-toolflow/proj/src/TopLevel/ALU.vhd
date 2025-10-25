@@ -116,17 +116,32 @@ begin
 
     -- flags driven from selected result / operands
  
-    o_LT   <= '1' when A_s < B_s else '0';              -- signed-compare flag
-    o_LTU  <= '1' when A_u < B_u else '0';              -- unsigned-compare flag
+
 
     -- overflow per 2's-comp rules (ADD/SUB)
-    ov_add <= '1' when (i_ALUOp = ALU_ADD) and ((A_s(31) = B_s(31)) and (sum(31)  /= A_s(31))) else '0';
-    ov_sub <= '1' when (i_ALUOp = ALU_SUB) and ((A_s(31) /= B_s(31)) and (diff(31) /= A_s(31))) else '0';
+    --ov_add <= '1' when (i_ALUOp = ALU_ADD) and ((A_s(31) = B_s(31)) and (sum(31)  /= A_s(31))) else '0';
+    --ov_sub <= '1' when (i_ALUOp = ALU_SUB) and ((A_s(31) /= B_s(31)) and (diff(31) /= A_s(31))) else '0';
   end process;
+  process (A_s, B_s, A_u, B_u)
+begin
+    -- Signed compare flag
+    if A_s < B_s then
+        o_LT <= '1';
+    else
+        o_LT <= '0';
+    end if;
+
+    -- Unsigned compare flag
+    if A_u < B_u then
+        o_LTU <= '1';
+    else
+        o_LTU <= '0';
+    end if;
+end process;
 
   -- connect result/overflow to outputs
   o_Y    <= res;                -- result out
-  o_Ovfl <= ov_add or ov_sub;   -- overflow out
+ -- o_Ovfl <= ov_add or ov_sub;   -- overflow out
 
   -- DO NOT TOUCH THIS LINE! It is intended to left outside of the combinational process
   o_Zero <= '1' when res = x"00000000" else '0';      -- Zero flag
