@@ -1,0 +1,13 @@
+[inst #1] auipc x7,64528
+Register Write to Reg: 0x07 Val: 0x10010000
+[inst #2] addi x7,x7,0
+Register Write to Reg: 0x07 Val: 0x10010000
+[inst #3] addi x5,x0,15
+Register Write to Reg: 0x05 Val: 0x0000000F
+[inst #4] ori x6,x5,240
+Register Write to Reg: 0x06 Val: 0x000000FF
+[inst #5] sw x6,0(x7)
+Memory Write to Addr: 0x10010000 Val: 0x000000FF
+[inst #6] wfi 
+
+Program terminated by dropping off the bottom.

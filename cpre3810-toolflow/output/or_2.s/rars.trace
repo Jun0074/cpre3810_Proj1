@@ -1,0 +1,41 @@
+[inst #1] addi x23,x0,0
+Register Write to Reg: 0x17 Val: 0x00000000
+[inst #2] lui x5,524288
+Register Write to Reg: 0x05 Val: 0x80000000
+[inst #3] addi x6,x0,-1
+Register Write to Reg: 0x06 Val: 0xFFFFFFFF
+[inst #4] xor x28,x6,x5
+Register Write to Reg: 0x1C Val: 0x7FFFFFFF
+[inst #5] or x29,x5,x28
+Register Write to Reg: 0x1D Val: 0xFFFFFFFF
+[inst #6] xor x30,x29,x6
+Register Write to Reg: 0x1E Val: 0x00000000
+[inst #7] or x23,x23,x30
+Register Write to Reg: 0x17 Val: 0x00000000
+[inst #8] addi x9,x0,0
+Register Write to Reg: 0x09 Val: 0x00000000
+[inst #9] or x9,x9,x5
+Register Write to Reg: 0x09 Val: 0x80000000
+[inst #10] xor x18,x9,x5
+Register Write to Reg: 0x12 Val: 0x00000000
+[inst #11] or x23,x23,x18
+Register Write to Reg: 0x17 Val: 0x00000000
+[inst #12] addi x19,x0,0
+Register Write to Reg: 0x13 Val: 0x00000000
+[inst #13] or x19,x28,x19
+Register Write to Reg: 0x13 Val: 0x7FFFFFFF
+[inst #14] xor x20,x19,x28
+Register Write to Reg: 0x14 Val: 0x00000000
+[inst #15] or x23,x23,x20
+Register Write to Reg: 0x17 Val: 0x00000000
+[inst #16] or x21,x5,x6
+Register Write to Reg: 0x15 Val: 0xFFFFFFFF
+[inst #17] xor x22,x21,x6
+Register Write to Reg: 0x16 Val: 0x00000000
+[inst #18] or x23,x23,x22
+Register Write to Reg: 0x17 Val: 0x00000000
+[inst #19] add x3,x23,x0
+Register Write to Reg: 0x03 Val: 0x00000000
+[inst #20] wfi 
+
+Program terminated by dropping off the bottom.

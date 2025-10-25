@@ -1,6 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use IEEE.numeric_std.all
+use IEEE.numeric_std.all;
 
 entity loadType is
 port(
@@ -39,14 +39,20 @@ h <= i_word(15 downto 0) when i_addr_low(1)='0' else i_word(31 downto 16);
 -- loadType decode  (follow your control encodings)
 -- 000=lw, 001=lh, 010=lb, 011=lbu, 100=lhu
 ----------------------------------------------------
+--"000", -- lb
+--"001", -- lh
+--"010", -- lw
+--"100", -- lbu
+--"101", -- lhu
 process(i_LType,b,h,i_word)
 begin
   case i_LType is
-    when "010" => o_data <= (31 downto 8  => b(7)) & b;     -- lb  (sign-extend 8->32)
-    when "011" => o_data <= (31 downto 8  => '0')  & b;     -- lbu (zero-extend 8->32)
+    when "000" => o_data <= (31 downto 8  => b(7)) & b;     -- lb  (sign-extend 8->32)
+    when "100" => o_data <= (31 downto 8  => '0')  & b;     -- lbu (zero-extend 8->32)
     when "001" => o_data <= (31 downto 16 => h(15))& h;     -- lh  (sign-extend 16->32)
-    when "100" => o_data <= (31 downto 16 => '0') & h;      -- lhu (zero-extend 16->32)
-    when others=> o_data <= i_word;                         -- lw  (pass full 32b)
+    when "101" => o_data <= (31 downto 16 => '0') & h;      -- lhu (zero-extend 16->32)
+   -- when "010"=> o_data <= i_word;                         -- lw  (pass full 32b)
+    when others=>o_data <= i_word;
   end case;
 end process;
 end architecture;

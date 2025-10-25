@@ -1,0 +1,7 @@
+[inst #1] lui x5,1048575
+Register Write to Reg: 0x05 Val: 0xFFFFF000
+[inst #2] srli x5,x5,31
+Register Write to Reg: 0x05 Val: 0x00000001
+[inst #3] wfi 
+
+Program terminated by dropping off the bottom.

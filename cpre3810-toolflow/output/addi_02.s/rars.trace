@@ -1,0 +1,41 @@
+Warning in /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/riscv/addi_02.s line 1 column 5: RARS does not recognize the .option directive.  Ignored.
+
+[inst #1] addi x1,x0,123
+Register Write to Reg: 0x01 Val: 0x0000007B
+[inst #2] addi x0,x1,1
+Register Write to Reg: 0x00 Val: 0x0000007C
+[inst #3] addi x2,x0,0
+Register Write to Reg: 0x02 Val: 0x00000000
+[inst #4] addi x3,x0,-1
+Register Write to Reg: 0x03 Val: 0xFFFFFFFF
+[inst #5] addi x4,x0,-2048
+Register Write to Reg: 0x04 Val: 0xFFFFF800
+[inst #6] addi x5,x3,1
+Register Write to Reg: 0x05 Val: 0x00000000
+[inst #7] addi x6,x4,2047
+Register Write to Reg: 0x06 Val: 0xFFFFFFFF
+[inst #8] addi x7,x3,2047
+Register Write to Reg: 0x07 Val: 0x000007FE
+[inst #9] addi x8,x0,2047
+Register Write to Reg: 0x08 Val: 0x000007FF
+[inst #10] addi x9,x0,2046
+Register Write to Reg: 0x09 Val: 0x000007FE
+[inst #11] addi x9,x9,1
+Register Write to Reg: 0x09 Val: 0x000007FF
+[inst #12] addi x9,x9,1
+Register Write to Reg: 0x09 Val: 0x00000800
+[inst #13] addi x10,x0,0
+Register Write to Reg: 0x0A Val: 0x00000000
+[inst #14] addi x10,x10,100
+Register Write to Reg: 0x0A Val: 0x00000064
+[inst #15] addi x10,x10,-50
+Register Write to Reg: 0x0A Val: 0x00000032
+[inst #16] addi x10,x10,-50
+Register Write to Reg: 0x0A Val: 0x00000000
+[inst #17] addi x11,x10,0
+Register Write to Reg: 0x0B Val: 0x00000000
+[inst #18] addi x0,x0,0
+Register Write to Reg: 0x00 Val: 0x00000000
+[inst #19] wfi 
+
+Program terminated by dropping off the bottom.

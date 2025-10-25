@@ -66,8 +66,10 @@ def read_config(config="Lab"):
         print("WARN: Quartus is not found with any of the provided paths. "
               "Please check your config file, or specify a new config")
     license = json.loads(c.get(config, "lm_license_file"))
-    rars_tok = json.loads(c.get(config, "rars_token"))
-    tf_tok = json.loads(c.get(config, "toolflow_token"))
+    #rars_tok = json.loads(c.get(config, "rars_token"))
+    #tf_tok = json.loads(c.get(config, "toolflow_token"))
+    rars_tok = None
+    tf_tok = None
     rars_id = json.loads(c.get(config, "rars_prj_id"))
     tf_id = json.loads(c.get(config, "toolflow_prj_id"))
     rars_path = json.loads(c.get(config, "rars_path"))

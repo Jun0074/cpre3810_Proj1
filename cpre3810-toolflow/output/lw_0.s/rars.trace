@@ -1,0 +1,69 @@
+[inst #1] lui x5,65552
+Register Write to Reg: 0x05 Val: 0x10010000
+[inst #2] addi x5,x5,0
+Register Write to Reg: 0x05 Val: 0x10010000
+[inst #3] lw x1,0(x5)
+Register Write to Reg: 0x01 Val: 0x12345678
+[inst #4] lw x2,0(x5)
+Register Write to Reg: 0x02 Val: 0x12345678
+[inst #5] lw x3,0(x5)
+Register Write to Reg: 0x03 Val: 0x12345678
+[inst #6] lw x4,0(x5)
+Register Write to Reg: 0x04 Val: 0x12345678
+[inst #7] lw x6,0(x5)
+Register Write to Reg: 0x06 Val: 0x12345678
+[inst #8] lw x7,0(x5)
+Register Write to Reg: 0x07 Val: 0x12345678
+[inst #9] lw x8,0(x5)
+Register Write to Reg: 0x08 Val: 0x12345678
+[inst #10] lw x9,0(x5)
+Register Write to Reg: 0x09 Val: 0x12345678
+[inst #11] lw x10,0(x5)
+Register Write to Reg: 0x0A Val: 0x12345678
+[inst #12] lw x11,0(x5)
+Register Write to Reg: 0x0B Val: 0x12345678
+[inst #13] lw x12,0(x5)
+Register Write to Reg: 0x0C Val: 0x12345678
+[inst #14] lw x13,0(x5)
+Register Write to Reg: 0x0D Val: 0x12345678
+[inst #15] lw x14,0(x5)
+Register Write to Reg: 0x0E Val: 0x12345678
+[inst #16] lw x15,0(x5)
+Register Write to Reg: 0x0F Val: 0x12345678
+[inst #17] lw x16,0(x5)
+Register Write to Reg: 0x10 Val: 0x12345678
+[inst #18] lw x17,0(x5)
+Register Write to Reg: 0x11 Val: 0x12345678
+[inst #19] lw x18,0(x5)
+Register Write to Reg: 0x12 Val: 0x12345678
+[inst #20] lw x19,0(x5)
+Register Write to Reg: 0x13 Val: 0x12345678
+[inst #21] lw x20,0(x5)
+Register Write to Reg: 0x14 Val: 0x12345678
+[inst #22] lw x21,0(x5)
+Register Write to Reg: 0x15 Val: 0x12345678
+[inst #23] lw x22,0(x5)
+Register Write to Reg: 0x16 Val: 0x12345678
+[inst #24] lw x23,0(x5)
+Register Write to Reg: 0x17 Val: 0x12345678
+[inst #25] lw x24,0(x5)
+Register Write to Reg: 0x18 Val: 0x12345678
+[inst #26] lw x25,0(x5)
+Register Write to Reg: 0x19 Val: 0x12345678
+[inst #27] lw x26,0(x5)
+Register Write to Reg: 0x1A Val: 0x12345678
+[inst #28] lw x27,0(x5)
+Register Write to Reg: 0x1B Val: 0x12345678
+[inst #29] lw x28,0(x5)
+Register Write to Reg: 0x1C Val: 0x12345678
+[inst #30] lw x29,0(x5)
+Register Write to Reg: 0x1D Val: 0x12345678
+[inst #31] lw x30,0(x5)
+Register Write to Reg: 0x1E Val: 0x12345678
+[inst #32] lw x31,0(x5)
+Register Write to Reg: 0x1F Val: 0x12345678
+[inst #33] lw x5,0(x5)
+Register Write to Reg: 0x05 Val: 0x12345678
+[inst #34] wfi 
+
+Program terminated by dropping off the bottom.

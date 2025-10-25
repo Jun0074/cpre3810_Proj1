@@ -20,43 +20,4 @@ loop: lw   s3, 0(s0)      # Get value from array F[n-2]
       addi s0, s0, 4      # increment address to now-known Fib. number storage
       addi s1, s1, -1     # decrement loop counter
       bne s1, zero, loop  # repeat while not finished
-      
-      # Fibonacci numbers are computed and stored in array. Print them.
-      la   a0, fibs        # first argument for print (array)
-      add  a1, zero, s5  # second argument for print (size)
-      jal  print            # call print routine. 
-
-      # The program is finished. Exit.
-      j die 
-		
-###############################################################
-# Subroutine to print the numbers on one line.
-      .data
-space:.asciz  " "          # space to insert between numbers
-head: .asciz  "The Fibonacci numbers are:\n"
-      .text
-print:add  t0, zero, a0  # starting address of array of data to be printed
-      add  t1, zero, a1  # initialize loop counter to array size
-      la   a0, head        # load address of the print heading string
-      ori  a7, zero , 4           # specify Print String service
-      ecall               # print the heading string
-      
-out:  lw   a0, 0(t0)      # load the integer to be printed (the current Fib. number)
-      ori  a7, zero , 1           # specify Print Integer service
-      ecall               # print fibonacci number
-      
-      la   a0, space       # load address of spacer for syscall
-      ori  a7, zero , 4           # specify Print String service
-      ecall               # print the spacer string
-      
-      addi t0, t0, 4      # increment address of data to be printed
-      addi t1, t1, -1     # decrement loop counter
-      bne t1, zero , out         # repeat while not finished
-      
-      jr   ra              # return from subroutine
-      
-# End of subroutine to print the numbers on one line
-###############################################################
-
-die:
-wfi
+      wfi

@@ -1,0 +1,105 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Fri Oct 24 21:59:28 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 0 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/RISCV_types.vhd
+    Info (12022): Found design unit 1: RISCV_types File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/RISCV_types.vhd Line: 15
+    Info (12022): Found design unit 2: RISCV_types-body File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/RISCV_types.vhd Line: 29
+Error (10500): VHDL syntax error at ALU.vhd(119) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 119
+Error (10500): VHDL syntax error at ALU.vhd(120) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 120
+Error (10500): VHDL syntax error at ALU.vhd(123) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 123
+Error (10500): VHDL syntax error at ALU.vhd(125) near text "when";  expecting ";" File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 125
+Info (12021): Found 0 design units, including 0 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/BarrelShifter32.vhd
+    Info (12022): Found design unit 1: BarrelShifter32-rtl File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/BarrelShifter32.vhd Line: 20
+    Info (12023): Found entity 1: BarrelShifter32 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/BarrelShifter32.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
+    Info (12022): Found design unit 1: RISCV_Processor-structure File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 36
+    Info (12023): Found entity 1: RISCV_Processor File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 24
+Info (15248): File "/home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RISCV_types.vhd" is a duplicate of already analyzed file "/home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/RISCV_types.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RISCV_types.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RegFile.vhd
+    Info (12022): Found design unit 1: RegFile-structural File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RegFile.vhd Line: 18
+    Info (12023): Found entity 1: RegFile File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RegFile.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RegN.vhd
+    Info (12022): Found design unit 1: RegN-structural File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RegN.vhd Line: 14
+    Info (12023): Found entity 1: RegN File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/RegN.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/adder_subtractor_N.vhd
+    Info (12022): Found design unit 1: adder_subtractor_N-structure File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/adder_subtractor_N.vhd Line: 15
+    Info (12023): Found entity 1: adder_subtractor_N File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/adder_subtractor_N.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/andg2.vhd
+    Info (12022): Found design unit 1: andg2-dataflow File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/andg2.vhd Line: 31
+    Info (12023): Found entity 1: andg2 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/andg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/control_unit.vhd
+    Info (12022): Found design unit 1: control_unit-dataflow File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/control_unit.vhd Line: 17
+    Info (12023): Found entity 1: control_unit File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/control_unit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/decoder5to32.vhd
+    Info (12022): Found design unit 1: decoder5to32-dataflow File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/decoder5to32.vhd Line: 11
+    Info (12023): Found entity 1: decoder5to32 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/decoder5to32.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/dffg.vhd
+    Info (12022): Found design unit 1: dffg-mixed File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/dffg.vhd Line: 33
+    Info (12023): Found entity 1: dffg File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/fetch.vhd
+    Info (12022): Found design unit 1: fetch-structure File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/fetch.vhd Line: 16
+    Info (12023): Found entity 1: fetch File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/fetch.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/full_adder.vhd
+    Info (12022): Found design unit 1: full_adder-structure File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/full_adder.vhd Line: 14
+    Info (12023): Found entity 1: full_adder File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/full_adder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/immGen.vhd
+    Info (12022): Found design unit 1: immGen-Behavioral File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/immGen.vhd Line: 13
+    Info (12023): Found entity 1: immGen File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/immGen.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/invg.vhd
+    Info (12022): Found design unit 1: invg-dataflow File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/invg.vhd Line: 30
+    Info (12023): Found entity 1: invg File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/invg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/loadType.vhd
+    Info (12022): Found design unit 1: loadType-rtl File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/loadType.vhd Line: 14
+    Info (12023): Found entity 1: loadType File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/loadType.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mem.vhd
+    Info (12022): Found design unit 1: mem-rtl File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mem.vhd Line: 27
+    Info (12023): Found entity 1: mem File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mem.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux2t1.vhd
+    Info (12022): Found design unit 1: mux2t1-structure File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux2t1.vhd Line: 13
+    Info (12023): Found entity 1: mux2t1 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux2t1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux2t1_N.vhd
+    Info (12022): Found design unit 1: mux2t1_N-structural File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux2t1_N.vhd Line: 30
+    Info (12023): Found entity 1: mux2t1_N File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux2t1_N.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux32to1_32bit.vhd
+    Info (12022): Found design unit 1: mux32to1_32bit-dataflow File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux32to1_32bit.vhd Line: 12
+    Info (12023): Found entity 1: mux32to1_32bit File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux32to1_32bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux4t1_N.vhd
+    Info (12022): Found design unit 1: mux4t1_N-Behavioral File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux4t1_N.vhd Line: 18
+    Info (12023): Found entity 1: mux4t1_N File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/mux4t1_N.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ones_complementor_N.vhd
+    Info (12022): Found design unit 1: ones_complementor_N-structural File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ones_complementor_N.vhd Line: 10
+    Info (12023): Found entity 1: ones_complementor_N File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ones_complementor_N.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/org2.vhd
+    Info (12022): Found design unit 1: org2-dataflow File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/org2.vhd Line: 31
+    Info (12023): Found entity 1: org2 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/org2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ripple_adder_N.vhd
+    Info (12022): Found design unit 1: ripple_adder_N-structural File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ripple_adder_N.vhd Line: 14
+    Info (12023): Found entity 1: ripple_adder_N File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/ripple_adder_N.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/sign_extenderNto32.vhd
+    Info (12022): Found design unit 1: sign_extenderNto32-Behavioral File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/sign_extenderNto32.vhd Line: 12
+    Info (12023): Found entity 1: sign_extenderNto32 File: /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/proj/src/TopLevel/sign_extenderNto32.vhd Line: 4
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 1 warning
+    Error: Peak virtual memory: 626 megabytes
+    Error: Processing ended: Fri Oct 24 21:59:34 2025
+    Error: Elapsed time: 00:00:06
+    Error: Total CPU time (on all processors): 00:00:11

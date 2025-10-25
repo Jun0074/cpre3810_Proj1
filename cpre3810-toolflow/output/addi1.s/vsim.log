@@ -3,12 +3,8 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 23:14:51 on Oct 22,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vsim-8611) Generating debug db.
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=32, depth=1024, type=RAM at location proj/src/TopLevel/mem.vhd:35
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Start time: 21:20:07 on Oct 23,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2025.1_2 linux_x86_64 Apr  7 2025
 # //
@@ -57,7 +53,7 @@ Reading pref.tcl
 # Loading work.alu(rtl)#1
 # Loading work.barrelshifter32(rtl)#1
 # Loading work.loadtype(rtl)#1
-# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
 # do modelsim_framework.do
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/u_ALU
@@ -79,11 +75,11 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 5  Instance: /tb/MyRiscv/u_ALU
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 8  Instance: /tb/MyRiscv/DMem
-# ** Note: Data structure takes 56112960 bytes of memory
-#          Process time 0.10 seconds
+# ** Note: Data structure takes 55162616 bytes of memory
+#          Process time 0.07 seconds
 #          stop
 #    Time: 140 ns  Iteration: 1  Instance: /tb
 # Break in Process P_DUMP_STATE at /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/internal/testpy/tb.vhd line 150
 # Stopped at /home/teoh/cpre381/cpre3810_Proj1/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 23:14:53 on Oct 22,2025, Elapsed time: 0:00:02
-# Errors: 0, Warnings: 11
+# End time: 21:20:07 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 10

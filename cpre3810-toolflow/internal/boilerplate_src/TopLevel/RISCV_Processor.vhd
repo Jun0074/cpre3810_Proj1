@@ -4,7 +4,7 @@
 -- Iowa State University
 -------------------------------------------------------------------------
 
-
+-- Author: Tian Jun Teoh, Austin Nguyen
 -- RISCV_Processor.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file contains a skeleton of a RISCV_Processor  
@@ -106,9 +106,9 @@ architecture structure of RISCV_Processor is
   -- Write-back / immediate / pc+4
   signal s_PCplus4   : std_logic_vector(N-1 downto 0);
   
-  -- TODO
+  -- ImmGen output
   signal s_ImmExt    : std_logic_vector(N-1 downto 0); -- from ImmGen (placeholder)
-
+  
 -- control
 -- ========= Bit-field format banner (MSB..LSB) =========
 -- [19]    [18]     [17:14]     [13:11]     [10:9]   [8]   [7]   [6]  [5]  [4]   [3:1]     [0]
@@ -267,7 +267,7 @@ begin
              data => iInstExt,
              we   => iInstLd,
              q    => s_Inst);
-  
+
   -- Data Memory
   DMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
@@ -277,8 +277,6 @@ begin
              data => s_DMemData,
              we   => s_DMemWr,
              q    => s_DMemOut);
-
-  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment! 
     
@@ -296,8 +294,8 @@ begin
       o_Y       => s_ALUResult,
       o_Zero    => s_Zero,
       o_LT      => s_LT,
-      o_LTU     => s_LTU,
-      o_Ovfl    => s_Ovfl
+      o_LTU     => s_LTU
+      --o_Ovfl    <= '0'
     );
 
   -- keep ALU result observable for synthesis
@@ -355,8 +353,9 @@ begin
     s_PCplus4                  when "10",
     s_ImmExt                   when others; --or 11 lui
 
--- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 0000000)
+-- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 1110011)
   oHalt <= s_Halt;
+
 
 end structure;
 
