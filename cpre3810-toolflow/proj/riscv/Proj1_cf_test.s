@@ -60,20 +60,19 @@ addi t0, x0, 0
 addi t1, x0, 1
 
 beq t0, t0, L1
-bne x0, x0, L2
 L1:
+bne t1, x0, L2
+L2:
 blt t0, t1, L3
+L3:
 bge t1, t0, L4
+L4:
 bltu t0, t1, L5
+L5:
 bgeu t1, t0, L6
-
-la t2, L7
-jalr ra, 0(t2)
-
-L2: wfi
-L3: wfi
-L4: wfi
-L5: wfi
-L6: wfi
-L7: wfi
+L6:
+jalr ra, ra, 4 # link to next addr +4 go L7
+L7:
+addi x0, x0, 0 
+wfi
 
