@@ -1,0 +1,115 @@
+
+#
+# CprE 381 toolflow Timing dump
+#
+
+FMax: 21.28mhz Clk Constraint: 20.00ns Slack: -27.00ns
+
+The path is given below
+
+ ===================================================================
+ From Node    : fetch:FETCH_PC|s_PC_current[7]
+ To Node      : RegFile:u_RegFile|RegN:\gen_regs:17:u_reg|dffg:\Ndffg_Reg:18:dffg_N|s_Q
+ Launch Clock : iCLK
+ Latch Clock  : iCLK
+ Data Arrival Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+      0.000      0.000           launch edge time
+      3.081      3.081  R        clock network delay
+      3.313      0.232     uTco  fetch:FETCH_PC|s_PC_current[7]
+      3.313      0.000 FF  CELL  FETCH_PC|s_PC_current[7]|q
+      3.680      0.367 FF    IC  s_IMemAddr[7]~1|datad
+      3.805      0.125 FF  CELL  s_IMemAddr[7]~1|combout
+      6.086      2.281 FF    IC  IMem|ram~42805|dataa
+      6.510      0.424 FF  CELL  IMem|ram~42805|combout
+      6.778      0.268 FF    IC  IMem|ram~42806|datab
+      7.170      0.392 FR  CELL  IMem|ram~42806|combout
+     10.976      3.806 RR    IC  IMem|ram~42809|datad
+     11.131      0.155 RR  CELL  IMem|ram~42809|combout
+     11.366      0.235 RR    IC  IMem|ram~42812|dataa
+     11.794      0.428 RF  CELL  IMem|ram~42812|combout
+     12.069      0.275 FF    IC  IMem|ram~42813|dataa
+     12.473      0.404 FF  CELL  IMem|ram~42813|combout
+     12.740      0.267 FF    IC  IMem|ram~42824|datab
+     13.144      0.404 FF  CELL  IMem|ram~42824|combout
+     13.370      0.226 FF    IC  IMem|ram~42825|datad
+     13.495      0.125 FF  CELL  IMem|ram~42825|combout
+     14.219      0.724 FF    IC  IMem|ram~42868|datac
+     14.500      0.281 FF  CELL  IMem|ram~42868|combout
+     14.726      0.226 FF    IC  IMem|ram~42869|datad
+     14.851      0.125 FF  CELL  IMem|ram~42869|combout
+     15.078      0.227 FF    IC  IMem|ram~43040|datad
+     15.203      0.125 FF  CELL  IMem|ram~43040|combout
+     16.977      1.774 FF    IC  s_ALU_A[6]~559|dataa
+     17.406      0.429 FR  CELL  s_ALU_A[6]~559|combout
+     17.609      0.203 RR    IC  s_ALU_A[6]~560|datad
+     17.764      0.155 RR  CELL  s_ALU_A[6]~560|combout
+     18.696      0.932 RR    IC  s_ALU_A[6]~563|datad
+     18.851      0.155 RR  CELL  s_ALU_A[6]~563|combout
+     20.323      1.472 RR    IC  s_ALU_A[6]~566|datad
+     20.478      0.155 RR  CELL  s_ALU_A[6]~566|combout
+     20.682      0.204 RR    IC  s_ALU_A[6]~576|datad
+     20.837      0.155 RR  CELL  s_ALU_A[6]~576|combout
+     21.879      1.042 RR    IC  u_ALU|u_sh|s2RA[3]~58|dataa
+     22.296      0.417 RR  CELL  u_ALU|u_sh|s2RA[3]~58|combout
+     22.500      0.204 RR    IC  u_ALU|u_sh|s2RA[3]~59|datac
+     22.787      0.287 RR  CELL  u_ALU|u_sh|s2RA[3]~59|combout
+     23.565      0.778 RR    IC  u_ALU|u_sh|s3RA[3]~41|datad
+     23.720      0.155 RR  CELL  u_ALU|u_sh|s3RA[3]~41|combout
+     23.923      0.203 RR    IC  u_ALU|u_sh|s3RA[3]~42|datad
+     24.078      0.155 RR  CELL  u_ALU|u_sh|s3RA[3]~42|combout
+     25.465      1.387 RR    IC  u_ALU|u_sh|s4RA[3]~23|datac
+     25.752      0.287 RR  CELL  u_ALU|u_sh|s4RA[3]~23|combout
+     26.452      0.700 RR    IC  u_ALU|u_sh|s5RA[3]~14|datac
+     26.739      0.287 RR  CELL  u_ALU|u_sh|s5RA[3]~14|combout
+     26.942      0.203 RR    IC  u_ALU|u_sh|s5RA[3]~15|datac
+     27.229      0.287 RR  CELL  u_ALU|u_sh|s5RA[3]~15|combout
+     27.455      0.226 RR    IC  u_ALU|Mux28~4|datac
+     27.742      0.287 RR  CELL  u_ALU|Mux28~4|combout
+     27.946      0.204 RR    IC  u_ALU|Mux28~5|datad
+     28.101      0.155 RR  CELL  u_ALU|Mux28~5|combout
+     36.249      8.148 RR    IC  DMem|ram~36499|datad
+     36.388      0.139 RF  CELL  DMem|ram~36499|combout
+     36.664      0.276 FF    IC  DMem|ram~36500|dataa
+     37.088      0.424 FF  CELL  DMem|ram~36500|combout
+     37.365      0.277 FF    IC  DMem|ram~36501|dataa
+     37.769      0.404 FF  CELL  DMem|ram~36501|combout
+     37.996      0.227 FF    IC  DMem|ram~36504|datad
+     38.121      0.125 FF  CELL  DMem|ram~36504|combout
+     38.352      0.231 FF    IC  DMem|ram~36505|datac
+     38.633      0.281 FF  CELL  DMem|ram~36505|combout
+     38.861      0.228 FF    IC  DMem|ram~36516|datad
+     39.011      0.150 FR  CELL  DMem|ram~36516|combout
+     39.212      0.201 RR    IC  DMem|ram~36517|datac
+     39.499      0.287 RR  CELL  DMem|ram~36517|combout
+     40.522      1.023 RR    IC  DMem|ram~36560|datad
+     40.661      0.139 RF  CELL  DMem|ram~36560|combout
+     40.896      0.235 FF    IC  DMem|ram~36731|datac
+     41.177      0.281 FF  CELL  DMem|ram~36731|combout
+     41.406      0.229 FF    IC  DMem|ram~36902|datad
+     41.556      0.150 FR  CELL  DMem|ram~36902|combout
+     41.766      0.210 RR    IC  u_LoadType|Mux0~0|datad
+     41.921      0.155 RR  CELL  u_LoadType|Mux0~0|combout
+     47.446      5.525 RR    IC  Mux14~0|datad
+     47.601      0.155 RR  CELL  Mux14~0|combout
+     47.805      0.204 RR    IC  Mux14~1|datad
+     47.960      0.155 RR  CELL  Mux14~1|combout
+     48.166      0.206 RR    IC  Add1~28|datad
+     48.321      0.155 RR  CELL  Add1~28|combout
+     50.162      1.841 RR    IC  u_RegFile|\gen_regs:17:u_reg|\Ndffg_Reg:18:dffg_N|s_Q~feeder|datad
+     50.317      0.155 RR  CELL  u_RegFile|\gen_regs:17:u_reg|\Ndffg_Reg:18:dffg_N|s_Q~feeder|combout
+     50.317      0.000 RR    IC  u_RegFile|\gen_regs:17:u_reg|\Ndffg_Reg:18:dffg_N|s_Q|d
+     50.404      0.087 RR  CELL  RegFile:u_RegFile|RegN:\gen_regs:17:u_reg|dffg:\Ndffg_Reg:18:dffg_N|s_Q
+ Data Required Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     20.000     20.000           latch edge time
+     23.403      3.403  R        clock network delay
+     23.411      0.008           clock pessimism removed
+     23.391     -0.020           clock uncertainty
+     23.409      0.018     uTsu  RegFile:u_RegFile|RegN:\gen_regs:17:u_reg|dffg:\Ndffg_Reg:18:dffg_N|s_Q
+ Data Arrival Time  :    50.404
+ Data Required Time :    23.409
+ Slack              :   -26.995 (VIOLATED)
+ ===================================================================
